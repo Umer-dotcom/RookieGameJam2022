@@ -38,6 +38,7 @@ public class CameraLookAt : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity))
         {
             LookAt.instance.LookTowards(hit.point); // Make gun look towards the hit point
+            ProjectileShooter.instance.SpawnPosLookAt(hit.point);
 
             if (cam)
             {
