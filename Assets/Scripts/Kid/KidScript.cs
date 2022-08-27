@@ -36,7 +36,7 @@ public class KidScript : MonoBehaviour
     }
     public void SetTarget(Vector3 targetPosition)
     {
-        if ((targetPosition - target).sqrMagnitude < minDistanceChange * minDistanceChange) return;
+        //if ((targetPosition - target).sqrMagnitude < minDistanceChange * minDistanceChange) return;
         target = targetPosition;
 
         Debug.Log("Target " + targetPosition);
