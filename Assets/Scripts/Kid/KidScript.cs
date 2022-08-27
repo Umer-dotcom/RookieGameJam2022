@@ -7,7 +7,7 @@ public class KidScript : MonoBehaviour
 {
 
     public int icecreamNeeded = 3;
-    public OPTag objectPoolTag;
+    //public OPTag objectPoolTag;
     
 
     NavMeshAgent navMeshAgent;
