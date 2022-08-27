@@ -14,7 +14,8 @@ public class KidScript : MonoBehaviour
     Vector3 target;
     
     bool hasReachedTarget = false;
-    //readonly float minDistanceChange = 1f;
+    readonly float minDistanceChange = 1f;
+
     int wayPointIndex = 0;
     int icecreamHitCount = 0;
     bool kidHappy = false;
