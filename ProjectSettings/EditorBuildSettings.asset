@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Proto_Scene_Duplicate.unity
+    path: Assets/Scenes/Umer_Proto_Scene.unity
     guid: eff1f6ffe4b1dd446b25677ab1574cb7
   m_configObjects: {}
