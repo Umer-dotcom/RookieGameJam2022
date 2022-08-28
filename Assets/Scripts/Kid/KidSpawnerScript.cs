@@ -68,6 +68,7 @@ public class KidSpawnerScript : MonoBehaviour
         {
             if (kid.IsTargetReached())
             {
+                
                 SetKidTarget(kid);
             }
         }

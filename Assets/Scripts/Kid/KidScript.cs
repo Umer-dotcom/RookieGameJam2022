@@ -7,13 +7,14 @@ public class KidScript : MonoBehaviour
 {
 
     public int icecreamNeeded = 3;
+    //public OPTag objectPoolTag;
     
 
     NavMeshAgent navMeshAgent;
     Vector3 target;
     
     bool hasReachedTarget = false;
-
+    //readonly float minDistanceChange = 1f;
     int wayPointIndex = 0;
     int icecreamHitCount = 0;
     bool kidHappy = false;
