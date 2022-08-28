@@ -23,6 +23,8 @@ public class ProjectileShooter : MonoBehaviour
     private float gunHeat = 0f;
     [SerializeField]
     private float TimeBetweenShots = 0.25f;
+    [SerializeField]
+    private ParticleSystem MuzzleFlash;
 
     private void Awake()
     {
@@ -62,12 +64,12 @@ public class ProjectileShooter : MonoBehaviour
                     gunHeat = TimeBetweenShots;
 
                     // DO THE SHOT HERE
+                    MuzzleFlash.Play();
                     GameObject projectile = Instantiate(projectiles[Random.Range(0, projectiles.Length - 1)], spawnPos.position, Quaternion.identity);
                     projectile.transform.parent = projectilesContainer.transform;
                     projectile.GetComponent<Rigidbody>().isKinematic = false;
                     projectile.GetComponent<Rigidbody>().AddForce(spawnPos.transform.forward * shootForce * Time.deltaTime, ForceMode.Impulse);
                     Destroy(projectile, 5f);
-                    //projectile.GetComponent<Rigidbody>().AddTorque(Vector3.right * shootForce * Time.deltaTime, ForceMode.Impulse);
 
                 }
             }

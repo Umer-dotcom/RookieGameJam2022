@@ -14,7 +14,7 @@ public class CameraLookAt : MonoBehaviour
             ProjectileShooter.instance.SpawnPosLookAt(hit.point);
             // Make character bones rotate in direction of crosshair
             BodyController.instance.TurnSpine(hit.point);
-            BodyController.instance.TurnNeck(hit.point);
+            //BodyController.instance.TurnNeck(hit.point);
         }
     }
 
