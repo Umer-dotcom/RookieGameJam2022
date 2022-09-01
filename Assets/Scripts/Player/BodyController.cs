@@ -14,12 +14,25 @@ public class BodyController : MonoBehaviour
     [SerializeField]
     private float turnTime = 50f;
 
+    private Rigidbody[] rigidbodies;
+
     private void Start()
     {
         if (instance == null)
+        {
             instance = this;
+            rigidbodies = GetComponentsInChildren<Rigidbody>();
+            foreach (Rigidbody rb in rigidbodies)
+            {
+                rb.isKinematic = true;
+            }
+            //Rigidbody thisObjRB = GetComponent<Rigidbody>();
+            //thisObjRB.isKinematic = false;
+        }
         else
+        {
             Destroy(this);
+        }
     }
  
      //values for internal use
@@ -49,4 +62,19 @@ public class BodyController : MonoBehaviour
         //rotate us over time according to speed until we are in the required rotation
         neck.rotation = Quaternion.Slerp(neck.rotation, _lookRotation, Time.deltaTime * turnTime);
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    Debug.Log("Kids Win!!!");
+    //    if (collision.gameObject.CompareTag("Kid"))
+    //    {
+            
+    //        foreach (Rigidbody rb in rigidbodies)
+    //        {
+    //            rb.isKinematic = false;
+    //        }
+    //        Rigidbody thisObjRB = GetComponent<Rigidbody>();
+    //        thisObjRB.isKinematic = true;
+    //    }
+    //}
 }

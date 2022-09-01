@@ -52,6 +52,7 @@ public class ProjectileShooter : MonoBehaviour
 
             if (shooting)
             {
+                
                 // cool the gun
                 if (gunHeat > 0)
                 {
@@ -68,12 +69,15 @@ public class ProjectileShooter : MonoBehaviour
                     GameObject projectile = Instantiate(projectiles[Random.Range(0, projectiles.Length - 1)], spawnPos.position, Quaternion.identity);
                     projectile.transform.parent = projectilesContainer.transform;
                     projectile.GetComponent<Rigidbody>().isKinematic = false;
-                    projectile.GetComponent<Rigidbody>().AddForce(spawnPos.transform.forward * shootForce * Time.deltaTime, ForceMode.Impulse);
+                    projectile.GetComponent<Rigidbody>().AddForce(shootForce * Time.deltaTime * spawnPos.transform.forward, ForceMode.Impulse);
                     Destroy(projectile, 5f);
 
                 }
+                
             }
         }
+      
+
     }
 
     public void SpawnPosLookAt(Vector3 targetLook)

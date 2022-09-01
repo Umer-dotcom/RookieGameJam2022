@@ -1439,7 +1439,8 @@ MonoBehaviour:
   - {fileID: 6558195187751874607, guid: 30dc183f5db6e114085d6a11c396daf5, type: 3}
   - {fileID: 1562104394846526255, guid: a205e9ca0b372f1439b9ee4a099782de, type: 3}
   - {fileID: 8840335113877959998, guid: d2d1e6454a80bb846887af5f8b7c8da2, type: 3}
-  projectilesContainer: {fileID: 0}
+  projectilesContainer: {fileID: 5371379080726272832, guid: 183998041d45ab543bc33d89f05b60d8,
+    type: 3}
   spawnPos: {fileID: 8281278896565335833}
   shootForce: 1000
   shooting: 0
