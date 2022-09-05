@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: ea81ead80cf498f458a85f9411735f20
+guid: df45ec1e872bc6b4a94cbca2904e2e62
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: CoverToStandLeft
+    second: LeftPeakRev
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: CoverToStandLeft
+      name: LeftPeakRev
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 0
-      lastFrame: 45
+      firstFrame: 57
+      lastFrame: 93
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
