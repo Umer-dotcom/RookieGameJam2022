@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 16e9bfe5a1feccb4db642554fa6bd7f5
+guid: 068f7fbde746c1d46a0f0b2df78606f7
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: CrouchingIdle
+    second: PeekRightAim
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: CrouchingIdle
+      name: PeekRightAim
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 0
-      lastFrame: 75
+      firstFrame: 30
+      lastFrame: 57
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -59,7 +59,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: GetPlayerToShoot
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

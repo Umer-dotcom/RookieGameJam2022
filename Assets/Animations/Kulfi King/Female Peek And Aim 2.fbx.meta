@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 16e9bfe5a1feccb4db642554fa6bd7f5
+guid: 4798ef8ca5d2c5445b712ad5666916c2
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: CrouchingIdle
+    second: PeekRight
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: CrouchingIdle
+      name: PeekRight
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 75
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

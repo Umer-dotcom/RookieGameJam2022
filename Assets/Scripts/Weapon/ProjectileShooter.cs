@@ -86,13 +86,13 @@ public class ProjectileShooter : MonoBehaviour
             {
                 if (state == ShootState.SHOOTRIGHT)
                 {
-                    animator.SetTrigger("takeCoverRight");
+                    animator.SetTrigger("takeCoverLeft");
                     state = ShootState.COVER;
                 }
                 else if (state == ShootState.SHOOTLEFT)
                 {
                     state = ShootState.COVER;
-                    animator.SetTrigger("takeCoverLeft");
+                    animator.SetTrigger("takeCoverRight");
                 }
             }
 
