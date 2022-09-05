@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum State
+{
+    ACTIVE,
+    PAUSED,
+    PASSED,
+    LOST
+}
 public class GameStateScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static State state;
+    private void Start()
     {
-        
+        state = State.ACTIVE;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

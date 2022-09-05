@@ -18,12 +18,16 @@ public class CameraLookAt : MonoBehaviour
             //Make the kid the gun is pointing at smile
             if (hit.collider.gameObject.CompareTag("Kid"))
             {
-                KidScript kidScript = hit.collider.gameObject.GetComponent<KidScript>();
-                BlendShapeController blendController = kidScript.GetBlendShapeController();
-                if (!blendController.IsMouthOpen())
-                {
-                    blendController.OpenMouth();
-                }
+                //KidInfantryScript kidInfantryScript = hit.collider.gameObject.GetComponent<KidInfantryScript>();
+                //if (kidInfantryScript == null)
+                //{
+                    
+                //}
+                //BlendShapeController blendController = kidInfantryScript.GetBlendShapeController();
+                //if (!blendController.IsMouthOpen())
+                //{
+                //    blendController.OpenMouth();
+                //}
             }
         }
     }

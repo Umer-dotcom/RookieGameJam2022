@@ -805,10 +805,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3541071926188126964}
-  - component: {fileID: 6735322281182960636}
   - component: {fileID: 3551309050270003131}
   - component: {fileID: 1766211571132587874}
   - component: {fileID: 4402144206725462557}
+  - component: {fileID: 3181310348276796366}
   m_Layer: 0
   m_Name: Kid_Male
   m_TagString: Kid
@@ -833,19 +833,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6735322281182960636
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4210789284224788558}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2.7347777, z: 1}
-  m_Center: {x: 0, y: 1.4327489, z: 0}
 --- !u!114 &3551309050270003131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,7 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036c42a57784ca940ba76ac6122f3415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icecreamNeeded: 3
+  hitsToKill: 3
 --- !u!195 &1766211571132587874
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -901,6 +888,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &3181310348276796366
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210789284224788558}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.57000273
+  m_Height: 3.3781047
+  m_Direction: 1
+  m_Center: {x: -0.003436102, y: 1.1890522, z: 0}
 --- !u!1 &4845005687990279564
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class WayPointScript : MonoBehaviour
 {
+    
+    public static event Action<int> _onWaypointEnter = delegate { };
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Kid"))
         {
-            Debug.Log("ReachedTarget");
-            KidScript kidScript = other.GetComponentInChildren<KidScript>();
+            
+            KidInfantryScript kidScript = other.GetComponentInChildren<KidInfantryScript>();
             if (kidScript != null)
             {
-                kidScript.ReachedTarget();
+                
+                _onWaypointEnter(kidScript.GetKidInfantryID());
                 
             }
             
