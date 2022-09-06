@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: f0fefff31926f1b448cb845a77f7f6e0
+guid: fe8d422e5e4803646aa550de76322b44
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: LeftPeak
+    second: Crouch Idle
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: LeftPeak
+      name: Crouch Idle
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 10
-      lastFrame: 30
+      firstFrame: 0
+      lastFrame: 7
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

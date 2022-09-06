@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ProjectileShooter : MonoBehaviour
 {
-
     private enum ShootState {
         COVER,
         SHOOTLEFT,
@@ -14,6 +13,8 @@ public class ProjectileShooter : MonoBehaviour
     private ShootState state;
 
     public static ProjectileShooter instance;
+
+    [SerializeField] GameObject parent;
 
     [SerializeField]
     private GameObject[] projectiles;
@@ -36,6 +37,9 @@ public class ProjectileShooter : MonoBehaviour
     private float shootSpeedMultiplier;
     [SerializeField]
     private ParticleSystem MuzzleFlash;
+
+    [SerializeField]
+    List<Transform> positions;
 
     private Animator animator;
     private void Awake()
@@ -66,34 +70,51 @@ public class ProjectileShooter : MonoBehaviour
         {
             touch = Input.GetTouch(0);
             
+            //if (touch.phase == TouchPhase.Began)
+            //{
+            //    float screenMid = Screen.width / 2;
+            //    if (touch.position.x > screenMid)
+            //    {
+            //        state = ShootState.SHOOTRIGHT;
+            //        animator.SetTrigger("leaveCoverRight");
+            //        parent.transform.position = positions[0].position;
+            //        //parent.transform.position = new(Mathf.Lerp(parent.transform.position.x, positions[0].position.x, 0.3f), parent.transform.position.y ,parent.transform.position.z);
+            //    }
+            //    else
+            //    {
+            //        state = ShootState.SHOOTLEFT;
+            //        animator.SetTrigger("leaveCoverLeft");
+            //        //parent.transform.position = new(Mathf.Lerp(parent.transform.position.x, positions[2].position.x, 0.3f), parent.transform.position.y, parent.transform.position.z);
+            //        parent.transform.position = positions[2].position;
+            //    }
+            //}
+
+            //if( touch.phase == TouchPhase.Ended)
+            //{
+            //    float velocity = 0.0f;
+            //    parent.transform.position = positions[1].position;//new(Mathf.SmoothDamp(parent.transform.position.x, positions[1].position.x, ref velocity, 0.5f), parent.transform.position.y, parent.transform.position.z);
+            //    if (state == ShootState.SHOOTRIGHT)
+            //    {
+            //        animator.SetTrigger("takeCoverRight");
+            //        state = ShootState.COVER;
+            //    }
+            //    else if (state == ShootState.SHOOTLEFT)
+            //    {
+            //        state = ShootState.COVER;
+            //        animator.SetTrigger("takeCoverLeft");
+            //    }
+                
+            //}
+
             if (touch.phase == TouchPhase.Began)
             {
-                float screenMid = Screen.width / 2;
-                if (touch.position.x > screenMid)
-                {
-                    state = ShootState.SHOOTRIGHT;
-                    animator.SetTrigger("leaveCoverRight");
-                } else
-                {
-                    state = ShootState.SHOOTLEFT;
-                    animator.SetTrigger("leaveCoverLeft");
-                }
-                //ducking = false;
-                
+                animator.SetTrigger("leaveCover");
+
             }
 
-            if( touch.phase == TouchPhase.Ended)
+            if (touch.phase == TouchPhase.Ended)
             {
-                if (state == ShootState.SHOOTRIGHT)
-                {
-                    animator.SetTrigger("takeCoverRight");
-                    state = ShootState.COVER;
-                }
-                else if (state == ShootState.SHOOTLEFT)
-                {
-                    state = ShootState.COVER;
-                    animator.SetTrigger("takeCoverLeft");
-                }
+                animator.SetTrigger("takeCover");
             }
 
             //if (shooting)
@@ -131,7 +152,7 @@ public class ProjectileShooter : MonoBehaviour
     public void SetAnimator(Animator animator)
     {
         this.animator = animator;
-        animator.SetFloat("shootSpeed", shootSpeedMultiplier);
+        animator.SetFloat("speedMultiplier", shootSpeedMultiplier);
     }
     public void GunDrop()
     {

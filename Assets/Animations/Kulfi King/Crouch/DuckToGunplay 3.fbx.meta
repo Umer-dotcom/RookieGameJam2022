@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: df45ec1e872bc6b4a94cbca2904e2e62
+guid: e4e25cf7e461c60408e1239fe9e1ba61
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: LeftPeakRev
+    second: Stand To Crouch
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: LeftPeakRev
+      name: Stand To Crouch
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 57
-      lastFrame: 93
+      firstFrame: 36
+      lastFrame: 95
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
