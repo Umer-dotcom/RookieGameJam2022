@@ -15,12 +15,15 @@ public class PlayerScript : MonoBehaviour
     protected Rigidbody[] rigidbodies;
     protected Collider[] colliders;
     private ProjectileShooter gun;
+    Collider mainCol;
     //CinemachineShake cinemachineShake;
     // Start is called before the first frame update
     void Start()
     {
+        mainCol = GetComponent<Collider>();
         gun = GetComponentInChildren<ProjectileShooter>();
         gun.SetAnimator(GetComponent<Animator>());
+        gun.SetCollider(mainCol);
         //cinemachineShake = CinemachineShake.INSTANCE;
         rigidbodies = GetComponentsInChildren<Rigidbody>();
         colliders = GetComponentsInChildren<Collider>();
@@ -32,8 +35,8 @@ public class PlayerScript : MonoBehaviour
         {
             col.enabled = false;
         }
-        Collider mainCol = GetComponent<Collider>();
-        mainCol.enabled = true;
+        
+        //mainCol.enabled = true;
     }
 
     protected void OnTriggerEnter(Collider other)    
@@ -82,6 +85,12 @@ public class PlayerScript : MonoBehaviour
     }
     public void GetPlayerToShoot()
     {
+        //MakeColliderVisible();
         gun.Shoot();
+    }
+    public void MakeColliderVisible()
+    {
+        //Bounds mainColBounds = mainCol.bounds;
+        mainCol.enabled = true;
     }
 }

@@ -6,8 +6,7 @@ public class ProjectileShooter : MonoBehaviour
 {
     private enum ShootState {
         COVER,
-        SHOOTLEFT,
-        SHOOTRIGHT,
+        SHOOTING
 
     }
     private ShootState state;
@@ -42,6 +41,7 @@ public class ProjectileShooter : MonoBehaviour
     List<Transform> positions;
 
     private Animator animator;
+    Collider mainCollider;
     private void Awake()
     {
         if (instance == null)
@@ -108,14 +108,20 @@ public class ProjectileShooter : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
+                shooting = true;
+                mainCollider.enabled = true;
                 animator.SetTrigger("leaveCover");
 
             }
 
             if (touch.phase == TouchPhase.Ended)
             {
+                shooting = false;
+                mainCollider.enabled = false;
                 animator.SetTrigger("takeCover");
+                transform.localRotation = Quaternion.identity;
             }
+            animator.SetBool("shooting", shooting);
 
             //if (shooting)
             //{
@@ -153,6 +159,11 @@ public class ProjectileShooter : MonoBehaviour
     {
         this.animator = animator;
         animator.SetFloat("speedMultiplier", shootSpeedMultiplier);
+    }
+    public void SetCollider(Collider collider)
+    {
+        this.mainCollider = collider;
+        collider.enabled = false;
     }
     public void GunDrop()
     {

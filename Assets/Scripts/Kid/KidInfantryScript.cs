@@ -1,23 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Events;
-//[RequireComponent(typeof(NavMeshAgent))]
-//[RequireComponent(typeof(Animator))]
+
 public class KidInfantryScript : Kid
 {
     
-
-    NavMeshAgent navMeshAgent;
-    Vector3 target;
     static int kidInfantryCount = 0;
     int kidInfantryID = 0;
-    bool hasReachedTarget = false;
-    bool hasReachedDestination = false;
 
-    int wayPointIndex = 0;
+    KidMovementScript kidMovement;
+
     
+    //Vector3 target;
     BlendShapeController blendShapeController;
 
     public int GetKidInfantryID()
@@ -28,52 +21,19 @@ public class KidInfantryScript : Kid
 
     protected new void Start()
     {
+        
         base.Start();
+        kidMovement = GetComponent<KidMovementScript>();
         kidInfantryID = kidInfantryCount;
         kidInfantryCount++;
         blendShapeController = GetComponentInChildren<BlendShapeController>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (navMeshAgent.enabled && !hasReachedTarget && !hasReachedDestination) navMeshAgent.destination = target;
-        
-        Debug.DrawRay(transform.position, target - transform.position);
-    }
-
     public BlendShapeController GetBlendShapeController()
     {
         return blendShapeController;
     }
-    public void SetTarget(Vector3 targetPosition)
-    {
-        target = targetPosition;
 
-        hasReachedTarget = false;
-    }
-    public void ReachedTarget(int ID)
-    {
-        
-        if (kidInfantryID == ID && !hasReachedTarget)
-        {
-            hasReachedTarget = true;
-            wayPointIndex++;
-            if (wayPointIndex >= 5) hasReachedDestination = true;
-        }
-    }
-    
-    public int GetWPIndex() 
-    {
-        return wayPointIndex;
-    }
-
-    public bool IsTargetReached()
-    {
-        return hasReachedTarget;
-    }
 
     protected void OnCollisionEnter(Collision collision)
     {
@@ -85,8 +45,9 @@ public class KidInfantryScript : Kid
             Debug.Log(hitCount);
             if (hitCount >= hitsToKill)
             {
-                navMeshAgent.enabled = false;
-                kidActive = true;
+                
+                kidMovement.KidDied();
+                kidActive = false;
                 foreach (Rigidbody rb in rigidbodies)
                 {
                     rb.isKinematic = false;
@@ -94,7 +55,7 @@ public class KidInfantryScript : Kid
                     blendShapeController.StomachFilled();
                 }
 
-                
+
                 Collider mainCollider = GetComponent<Collider>();
                 foreach (Collider col in colliders)
                 {
@@ -103,7 +64,7 @@ public class KidInfantryScript : Kid
                 mainCollider.enabled = false;
                 StartCoroutine(TurnKidsOffDelay(3f));
 
-                
+
             }
 
         }
