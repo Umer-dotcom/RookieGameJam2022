@@ -81,21 +81,39 @@ public class KidThrowerScript : Kid
             if (hitCount >= hitsToKill)
             {
                 kidActive = false;
-                animator.enabled = false;
+                //animator.enabled = false;
+                Rigidbody[] rigidbodies = ragdollEnabler.EnableRagdoll();
+                //foreach (Rigidbody rb in rigidbodies)
+                //{
+                //    rb.isKinematic = false;
+                //}
+                
+                Vector3 forceDirection = -(collision.contacts[0].point - transform.position).normalized;
+                forceDirection.y = 0;
                 foreach (Rigidbody rb in rigidbodies)
                 {
-                    rb.isKinematic = false;
+
+                    rb.AddForce(forceDirection * 20f, ForceMode.Impulse);
+                    //rb.isKinematic = false;
+
+                    //blendShapeController.StomachFilled();
                 }
 
-                
+
                 Collider mainCollider = GetComponent<Collider>();
-                foreach (Collider col in colliders)
-                {
-                    col.enabled = true;
-                }
+                //foreach (Collider col in colliders)
+                //{
+                //    col.enabled = true;
+                //}
                 mainCollider.enabled = false;
                 StartCoroutine(TurnKidsOffDelay(3f));
             }
         }
+    }
+    protected override IEnumerator TurnKidsOffDelay(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        Instantiate(sleepEffect, ragdollEnabler.GetRagdollRoot().position + new Vector3(0, 1, 0), Quaternion.identity);
+        ragdollEnabler.DisableAllRigidbodies();
     }
 }

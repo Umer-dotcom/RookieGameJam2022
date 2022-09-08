@@ -16,7 +16,7 @@ public class KidSpawnerScript : MonoBehaviour
     private Ray startToTargetRay;
     private float lastKidSpawn = 0;
     private float spawnedKidCount = 0;
-    private List<KidInfantryScript> kidsList = new List<KidInfantryScript>();
+    private List<KidMovementScript> kidsList = new List<KidMovementScript>();
     private void OnEnable()
     {
         WayPointScript._onWaypointEnter += SetKidTarget;
@@ -69,7 +69,8 @@ public class KidSpawnerScript : MonoBehaviour
         
 
         GameObject kidSpawned = poolerScript.SpawnFromPool(kidObjectTags[Random.Range(0, kidObjectTags.Length)], transform.position, Quaternion.identity);
-        KidInfantryScript kidScript = kidSpawned.GetComponentInChildren<KidInfantryScript>();
+        KidMovementScript kidScript = kidSpawned.GetComponentInChildren<KidMovementScript>();
+        
         if (kidScript == null) return;
         
         kidsList.Add(kidScript);
@@ -80,10 +81,10 @@ public class KidSpawnerScript : MonoBehaviour
     public void SetKidTarget(int ID)
     {
         
-        KidInfantryScript kidScript = null;
-        foreach (KidInfantryScript kid in kidsList)
+        KidMovementScript kidScript = null;
+        foreach (KidMovementScript kid in kidsList)
         {
-            if (kid.GetKidInfantryID() == ID) { 
+            if (kid.GetID() == ID) { 
                 kidScript = kid;
                 break;
             }
@@ -92,17 +93,17 @@ public class KidSpawnerScript : MonoBehaviour
         if (kidScript == null) return;
 
         kidScript.ReachedTarget(ID);
-        if (kidScript.GetWPIndex() == 4)
+        if (kidScript.WPIndex() == 4)
         {
             kidScript.SetTarget(destination.position);
             return;
         }
-        else if (kidScript.GetWPIndex() > 4 )
+        else if (kidScript.WPIndex() > 4 )
         {
             return;
         }
         int targetOffsetIndex = Random.Range(0, 3);
-        Vector3 targetWayPoint = wayPointMatrix[kidScript.GetWPIndex(), targetOffsetIndex];
+        Vector3 targetWayPoint = wayPointMatrix[kidScript.WPIndex(), targetOffsetIndex];
         kidScript.SetTarget(targetWayPoint);
     }
 }

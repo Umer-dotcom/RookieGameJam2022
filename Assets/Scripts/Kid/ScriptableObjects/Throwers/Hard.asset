@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _guid: 8c1b0b4f2dd15f143ab14d485deb44e9
   description: Kid thrower with expert abilities
-  force: 50
+  force: 30
   speedMultiplier: 3
   throwsPerCycle: 3
   maxInaccuracy: 0.5

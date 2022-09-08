@@ -1,79 +1,44 @@
+
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Events;
-//[RequireComponent(typeof(NavMeshAgent))]
-//[RequireComponent(typeof(Animator))]
+
 public class KidInfantryScript : Kid
 {
-    
-
-    NavMeshAgent navMeshAgent;
-    Vector3 target;
+    //RagdollEnabler ragdollEnabler;
     static int kidInfantryCount = 0;
     int kidInfantryID = 0;
-    bool hasReachedTarget = false;
-    bool hasReachedDestination = false;
 
-    int wayPointIndex = 0;
+    KidMovementScript kidMovement;
+
     
+    //Vector3 target;
     BlendShapeController blendShapeController;
 
     public int GetKidInfantryID()
     {
         return kidInfantryID;
     }
-
+    private void Awake()
+    {
+        ragdollEnabler = GetComponent<RagdollEnabler>();
+        kidMovement = GetComponent<KidMovementScript>();
+    }
 
     protected new void Start()
     {
+        
         base.Start();
+        
         kidInfantryID = kidInfantryCount;
         kidInfantryCount++;
         blendShapeController = GetComponentInChildren<BlendShapeController>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (navMeshAgent.enabled && !hasReachedTarget && !hasReachedDestination) navMeshAgent.destination = target;
-        
-        Debug.DrawRay(transform.position, target - transform.position);
-    }
-
     public BlendShapeController GetBlendShapeController()
     {
         return blendShapeController;
     }
-    public void SetTarget(Vector3 targetPosition)
-    {
-        target = targetPosition;
 
-        hasReachedTarget = false;
-    }
-    public void ReachedTarget(int ID)
-    {
-        
-        if (kidInfantryID == ID && !hasReachedTarget)
-        {
-            hasReachedTarget = true;
-            wayPointIndex++;
-            if (wayPointIndex >= 5) hasReachedDestination = true;
-        }
-    }
-    
-    public int GetWPIndex() 
-    {
-        return wayPointIndex;
-    }
-
-    public bool IsTargetReached()
-    {
-        return hasReachedTarget;
-    }
 
     protected void OnCollisionEnter(Collision collision)
     {
@@ -85,28 +50,40 @@ public class KidInfantryScript : Kid
             Debug.Log(hitCount);
             if (hitCount >= hitsToKill)
             {
-                navMeshAgent.enabled = false;
-                kidActive = true;
+                
+                //kidMovement.KidDied();
+                kidActive = false;
+                Rigidbody[] rigidbodies = ragdollEnabler.EnableRagdoll();
+                Vector3 forceDirection = -(collision.contacts[0].point - transform.position).normalized;
+                forceDirection.y = 0;
                 foreach (Rigidbody rb in rigidbodies)
                 {
-                    rb.isKinematic = false;
 
-                    blendShapeController.StomachFilled();
+                    rb.AddForce(forceDirection * 100f, ForceMode.Impulse);
+                    //rb.isKinematic = false;
+
+                    //blendShapeController.StomachFilled();
                 }
 
-                
+
                 Collider mainCollider = GetComponent<Collider>();
-                foreach (Collider col in colliders)
-                {
-                    col.enabled = true;
-                }
+                //foreach (Collider col in colliders)
+                //{
+                //    col.enabled = true;
+                //}
                 mainCollider.enabled = false;
                 StartCoroutine(TurnKidsOffDelay(3f));
 
-                
+
             }
 
         }
+    }
+    protected override IEnumerator TurnKidsOffDelay(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        Instantiate(sleepEffect, ragdollEnabler.GetRagdollRoot().position + new Vector3(0, 1, 0), Quaternion.identity);
+        ragdollEnabler.DisableAllRigidbodies();
     }
 
 }

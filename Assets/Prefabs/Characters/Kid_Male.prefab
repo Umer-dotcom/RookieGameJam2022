@@ -809,6 +809,9 @@ GameObject:
   - component: {fileID: 1766211571132587874}
   - component: {fileID: 4402144206725462557}
   - component: {fileID: 3181310348276796366}
+  - component: {fileID: 5774623207184403629}
+  - component: {fileID: 7248594064954691031}
+  - component: {fileID: 5696147246685046838}
   m_Layer: 0
   m_Name: Kid_Male
   m_TagString: Kid
@@ -845,7 +848,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036c42a57784ca940ba76ac6122f3415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitsToKill: 3
+  hitsToKill: 10
+  sleepEffect: {fileID: 1534639363344604, guid: 21839c8bb8537054c855321a11c68a11,
+    type: 3}
 --- !u!195 &1766211571132587874
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -876,9 +881,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4210789284224788558}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 55dbfcde3ae42ef499813613fad159d6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 03b239cd7ef5fbe49bfe8e3064eebfa9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -902,6 +907,71 @@ CapsuleCollider:
   m_Height: 3.3781047
   m_Direction: 1
   m_Center: {x: -0.003436102, y: 1.1890522, z: 0}
+--- !u!114 &5774623207184403629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210789284224788558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c139deda08df63a49a7be78d50f6b238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Method: 3
+  m_Curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &7248594064954691031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210789284224788558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0f16073c7e7a241a2ef32580c3d7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0, z: 0}
+  UpdateRate: 0.1
+--- !u!114 &5696147246685046838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4210789284224788558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35612503cec0e24e968ecb0ff900ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RagdollRoot: {fileID: 9039912936008798816}
+  StartRagdoll: 0
 --- !u!1 &4845005687990279564
 GameObject:
   m_ObjectHideFlags: 0
