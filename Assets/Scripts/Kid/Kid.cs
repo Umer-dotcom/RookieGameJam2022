@@ -6,14 +6,17 @@ public class Kid : MonoBehaviour
 {
     [SerializeField] protected int hitsToKill;
     [SerializeField] protected GameObject sleepEffect;
-    private static int kidCount = 0;
+    [SerializeField] List<GameObject> firstHitEmojis;
+    [SerializeField] List<GameObject> secondHitEmojis;
+    [SerializeField] List<GameObject> thirdHitEmojis;
 
     
+    private static int kidCount = 0;
+
     protected int hitCount = 0;
     private int kidID;
     protected bool kidActive = true;
-    //protected Rigidbody[] rigidbodies;
-    //protected Collider[] colliders;
+
     protected RagdollEnabler ragdollEnabler;
     private void Awake()
     {
@@ -24,16 +27,6 @@ public class Kid : MonoBehaviour
     {
         kidID = kidCount;
         kidCount++;
-        //rigidbodies = GetComponentsInChildren<Rigidbody>();
-        //colliders = GetComponentsInChildren<Collider>();
-        //foreach (Rigidbody rb in rigidbodies)
-        //{
-        //    rb.isKinematic = true;
-        //}
-        //foreach (Collider col in colliders)
-        //{
-        //    col.enabled = false;
-        //}
         Collider mainCol = GetComponent<Collider>();
         mainCol.enabled = true;
     }
@@ -59,41 +52,13 @@ public class Kid : MonoBehaviour
     {
         return kidActive;
     }
-    //protected virtual void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Bullet"))
-    //    {
 
-    //        hitCount++;
-    //        if (hitCount >= hitsToKill)
-    //        {
-    //            foreach (Rigidbody rb in rigidbodies)
-    //            {
-    //                rb.isKinematic = false;
-    //            }
-
-    //            kidActive = false;
-    //            Collider mainCollider = GetComponent<Collider>();
-    //            mainCollider.enabled = false;
-    //            StartCoroutine(TurnKidsOffDelay(3f));
-    //        }
-    //    }
-    //}
 
     protected virtual IEnumerator TurnKidsOffDelay(float duration)
     {
         yield return new WaitForSeconds(duration);
         Debug.Log("parent coroutine running");
-        //foreach (Rigidbody rb in rigidbodies)
-        //{
-        //    rb.isKinematic = true;
-        //}
-
-        //Collider[] allColliders = GetComponentsInChildren<Collider>();
-        //foreach (Collider collider in allColliders)
-        //{
-        //    collider.enabled = false;
-        //}
+        
     }
 
 
