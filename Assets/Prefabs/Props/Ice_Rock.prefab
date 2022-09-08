@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 359532639268290068}
   - component: {fileID: 3698170606222684593}
   - component: {fileID: 1492518708162151803}
+  - component: {fileID: 3529813220360434759}
   m_Layer: 0
   m_Name: Ice_Rock
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3529813220360434759
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132234929012139182}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8084192691596335072, guid: 54b18272ead521f4bb08a6570958f65b, type: 3}
