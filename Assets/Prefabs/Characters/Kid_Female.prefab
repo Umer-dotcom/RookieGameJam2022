@@ -1556,6 +1556,7 @@ GameObject:
   - component: {fileID: 2387869754593046809}
   - component: {fileID: -3944346910865253811}
   - component: {fileID: -8463508693135934085}
+  - component: {fileID: 8608827445341723191}
   m_Layer: 0
   m_Name: Kid_Female
   m_TagString: Kid
@@ -1593,6 +1594,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitsToKill: 10
+  sleepEffect: {fileID: 1534639363344604, guid: 21839c8bb8537054c855321a11c68a11,
+    type: 3}
 --- !u!195 &5032753711988346994
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1700,6 +1703,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0, z: 0}
   UpdateRate: 0.1
+--- !u!114 &8608827445341723191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7066907193453917227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35612503cec0e24e968ecb0ff900ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RagdollRoot: {fileID: 2668717882749685253}
+  StartRagdoll: 0
 --- !u!1 &7839914882268744508
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(Animator), typeof(NavMeshAgent))]
 public class RagdollEnabler : MonoBehaviour
 {
-    [SerializeField]
+    //[SerializeField]
     private Animator Animator;
     [SerializeField]
     private Transform RagdollRoot;
-    [SerializeField]
+    //[SerializeField]
     private NavMeshAgent Agent;
     [SerializeField]
     private bool StartRagdoll = false;
@@ -16,8 +17,14 @@ public class RagdollEnabler : MonoBehaviour
 
     private void Awake()
     {
+        Animator = GetComponent<Animator>();
+        Agent = GetComponent<NavMeshAgent>();
         Rigidbodies = RagdollRoot.GetComponentsInChildren<Rigidbody>();
         Joints = RagdollRoot.GetComponentsInChildren<CharacterJoint>();
+    }
+    public Transform GetRagdollRoot()
+    {
+        return RagdollRoot;
     }
 
     private void Start()
@@ -32,7 +39,7 @@ public class RagdollEnabler : MonoBehaviour
         }
     }
 
-    public void EnableRagdoll()
+    public Rigidbody[] EnableRagdoll()
     {
         Animator.enabled = false;
         Agent.enabled = false;
@@ -47,6 +54,7 @@ public class RagdollEnabler : MonoBehaviour
             rigidbody.useGravity = true;
             rigidbody.isKinematic = false;
         }
+        return Rigidbodies;
     }
 
     public void DisableAllRigidbodies()
@@ -69,7 +77,7 @@ public class RagdollEnabler : MonoBehaviour
         }
         foreach (Rigidbody rigidbody in Rigidbodies)
         {
-            //rigidbody.detectCollisions = false;
+            rigidbody.detectCollisions = false;
             rigidbody.useGravity = false;
             rigidbody.isKinematic = true;
         }

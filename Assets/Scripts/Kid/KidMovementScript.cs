@@ -67,7 +67,7 @@ public class KidMovementScript : MonoBehaviour
     {
         WaitForSeconds Wait = new WaitForSeconds(UpdateRate);
 
-        while (enabled && kidActive)
+        while (Agent.isActiveAndEnabled && kidActive)
         {
             Agent.SetDestination(target - (target - transform.position).normalized * 0.5f);
             yield return Wait;
