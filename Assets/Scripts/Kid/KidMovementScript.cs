@@ -5,7 +5,10 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent), typeof(AgentLinkMover))]
 public class KidMovementScript : MonoBehaviour
 {
-    
+    [SerializeField] float initSpeed;
+    [SerializeField] float maxSpeed;
+
+    private float speedIncrement;
     public Vector3 target;
 
     private Animator Animator;
@@ -46,11 +49,20 @@ public class KidMovementScript : MonoBehaviour
     private void Start()
     {
         StartCoroutine(FollowTarget());
+        Agent.speed = initSpeed;
+        speedIncrement = (maxSpeed - initSpeed) / 3;
     }
 
     private void HandleLinkStart()
     {
         Animator.SetTrigger(jump);
+    }
+    public void GetAggressive()
+    {
+        if (Agent.speed < maxSpeed)
+        {
+            Agent.speed += speedIncrement;
+        }
     }
 
     private void HandleLinkEnd()

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Kid : MonoBehaviour
 {
+    
     [SerializeField] protected int hitsToKill;
     [SerializeField] protected GameObject sleepEffect;
-    [SerializeField] List<GameObject> firstHitEmojis;
-    [SerializeField] List<GameObject> secondHitEmojis;
-    [SerializeField] List<GameObject> thirdHitEmojis;
-
     
-    private static int kidCount = 0;
+
+    protected int stateTransitionValue;
+    
+    protected static int kidCount = 0;
 
     protected int hitCount = 0;
     private int kidID;
@@ -25,6 +25,7 @@ public class Kid : MonoBehaviour
 
     public virtual void Start()
     {
+        stateTransitionValue = hitsToKill / 3;
         kidID = kidCount;
         kidCount++;
         Collider mainCol = GetComponent<Collider>();

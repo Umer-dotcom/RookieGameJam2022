@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea3addf1cf0b084f83395777d3d0dc2, type: 3}
+  m_Name: InjuredEmoji
+  m_EditorClassIdentifier: 
+  _guid: bc91d0f721c595c43aac2443317f09e5
+  description: 
+  emojis:
+  - {fileID: 1515200864073114, guid: 111aea1c6d698f943bad9c9e0cc8d90b, type: 3}

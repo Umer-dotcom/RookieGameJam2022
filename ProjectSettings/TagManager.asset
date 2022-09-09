@@ -8,6 +8,7 @@ TagManager:
   - Kid
   - Bullet
   - EnemyBullet
+  - Head
   layers:
   - Default
   - TransparentFX

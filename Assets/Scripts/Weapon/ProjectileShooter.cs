@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class ProjectileShooter : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class ProjectileShooter : MonoBehaviour
     public static ProjectileShooter instance;
 
     [SerializeField] GameObject parent;
+
+    [SerializeField] CinemachineVirtualCamera virtualCamera;
 
     [SerializeField]
     private GameObject[] projectiles;
@@ -37,22 +40,29 @@ public class ProjectileShooter : MonoBehaviour
     [SerializeField]
     private ParticleSystem MuzzleFlash;
 
-    [SerializeField]
-    List<Transform> positions;
+    ObjectPoolerScript poolerScript;
 
     private Animator animator;
     Collider mainCollider;
+    Vector3 InitCameraPosition;
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
             gunRB = GetComponent<Rigidbody>();
+            poolerScript = ObjectPoolerScript.Instance;
             //animator = GetComponent<Animator>();
             gunRB.isKinematic = true;
         }
         else
             Destroy(this);
+    }
+
+    private void Start()
+    {
+        if (virtualCamera != null) InitCameraPosition = virtualCamera.LookAt.position;
+        
     }
     private void OnEnable()
     {
@@ -69,42 +79,7 @@ public class ProjectileShooter : MonoBehaviour
         if (gunActive && Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
-            
-            //if (touch.phase == TouchPhase.Began)
-            //{
-            //    float screenMid = Screen.width / 2;
-            //    if (touch.position.x > screenMid)
-            //    {
-            //        state = ShootState.SHOOTRIGHT;
-            //        animator.SetTrigger("leaveCoverRight");
-            //        parent.transform.position = positions[0].position;
-            //        //parent.transform.position = new(Mathf.Lerp(parent.transform.position.x, positions[0].position.x, 0.3f), parent.transform.position.y ,parent.transform.position.z);
-            //    }
-            //    else
-            //    {
-            //        state = ShootState.SHOOTLEFT;
-            //        animator.SetTrigger("leaveCoverLeft");
-            //        //parent.transform.position = new(Mathf.Lerp(parent.transform.position.x, positions[2].position.x, 0.3f), parent.transform.position.y, parent.transform.position.z);
-            //        parent.transform.position = positions[2].position;
-            //    }
-            //}
-
-            //if( touch.phase == TouchPhase.Ended)
-            //{
-            //    float velocity = 0.0f;
-            //    parent.transform.position = positions[1].position;//new(Mathf.SmoothDamp(parent.transform.position.x, positions[1].position.x, ref velocity, 0.5f), parent.transform.position.y, parent.transform.position.z);
-            //    if (state == ShootState.SHOOTRIGHT)
-            //    {
-            //        animator.SetTrigger("takeCoverRight");
-            //        state = ShootState.COVER;
-            //    }
-            //    else if (state == ShootState.SHOOTLEFT)
-            //    {
-            //        state = ShootState.COVER;
-            //        animator.SetTrigger("takeCoverLeft");
-            //    }
-                
-            //}
+           
 
             if (touch.phase == TouchPhase.Began)
             {
@@ -123,33 +98,15 @@ public class ProjectileShooter : MonoBehaviour
             }
             animator.SetBool("shooting", shooting);
 
-            //if (shooting)
-            //{
+            
+        }
 
-                
-            //    // cool the gun
-            //    if (gunHeat > 0)
-            //    {
-            //        gunHeat -= Time.deltaTime;
-            //    }
+        if (!shooting)
+        {
+            Vector3 velocity = Vector3.zero;
+            float smoothTime = 0.3f;
+            virtualCamera.LookAt.position = Vector3.SmoothDamp(virtualCamera.LookAt.position, InitCameraPosition, ref velocity, smoothTime);
 
-            //    if (gunHeat <= 0)
-            //    {
-            //        // heat the gun up so we have to wait a bit before shooting again
-            //        gunHeat = TimeBetweenShots;
-
-            //        // DO THE SHOT HERE
-            //        //MuzzleFlash.Play();
-            //        //GameObject projectile = Instantiate(projectiles[Random.Range(0, projectiles.Length - 1)], spawnPos.position, Quaternion.identity);
-            //        //projectile.transform.parent = projectilesContainer.transform;
-            //        //projectile.GetComponent<Rigidbody>().isKinematic = false;
-            //        //projectile.GetComponent<Rigidbody>().AddForce(shootForce * spawnPos.forward, ForceMode.Impulse);
-                    
-            //        //Destroy(projectile, 5f);
-
-            //    }
-                
-            //}
         }
         Debug.DrawRay(spawnPos.position, spawnPos.forward * 25f, Color.red);
 
@@ -183,11 +140,11 @@ public class ProjectileShooter : MonoBehaviour
     public void Shoot()
     {
         MuzzleFlash.Play();
-        GameObject projectile = Instantiate(projectiles[Random.Range(0, projectiles.Length - 1)], spawnPos.position, Quaternion.identity);
+        GameObject projectile = poolerScript.SpawnFromPool(OPTag.BULLET, spawnPos.position, Quaternion.identity);/*Instantiate(projectiles[Random.Range(0, projectiles.Length - 1)], spawnPos.position, Quaternion.identity);*/
         projectile.transform.parent = projectilesContainer.transform;
         projectile.GetComponent<Rigidbody>().isKinematic = false;
         projectile.GetComponent<Rigidbody>().AddForce(shootForce * spawnPos.forward, ForceMode.Impulse);
 
-        Destroy(projectile, 5f);
+        //Destroy(projectile, 5f);
     }
 }
