@@ -1,18 +1,17 @@
 using System;
 using UnityEngine;
 
-public class HeadShotScript : MonoBehaviour
+public class ThrowerHeadShot : MonoBehaviour
 {
     [SerializeField] GameObject kid;
     private const string bulletTag = "Bullet";
-    public static event Action<int, Collision> OnHeadShot = delegate { };
 
-    KidInfantryScript kidInfantryScript;
-    
+    KidThrowerScript kidThrowerScript;
+
     private void Awake()
     {
         //kid = GetComponent<KidInfantryScript>();
-        kidInfantryScript = kid.GetComponent<KidInfantryScript>();
+        kidThrowerScript = kid.GetComponent<KidThrowerScript>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -21,12 +20,14 @@ public class HeadShotScript : MonoBehaviour
         {
             //OnHeadShot(gameObject.GetComponent<Kid>().GetKidID(), collision);
             
-            if (kidInfantryScript.GetHitCount() >= kidInfantryScript.GetHitsToKill())
+            if (kidThrowerScript.GetHitCount() >= kidThrowerScript.GetHitsToKill())
             {
                 Collider headCollider = GetComponent<Collider>();
                 headCollider.enabled = false;
+                
             }
-            kidInfantryScript.HeadShot(collision);
+            kidThrowerScript.HeadShot(collision);
         }
     }
 }
+

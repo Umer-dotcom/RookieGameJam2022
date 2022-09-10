@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.EventSystems;
 public class ProjectileShooter : MonoBehaviour
 {
     private enum ShootState {
@@ -43,7 +43,9 @@ public class ProjectileShooter : MonoBehaviour
     ObjectPoolerScript poolerScript;
 
     private Animator animator;
-    Collider mainCollider;
+    CapsuleCollider mainCollider;
+
+    Vector3 initColliderPos;
     Vector3 InitCameraPosition;
     private void Awake()
     {
@@ -53,6 +55,7 @@ public class ProjectileShooter : MonoBehaviour
             gunRB = GetComponent<Rigidbody>();
             poolerScript = ObjectPoolerScript.Instance;
             //animator = GetComponent<Animator>();
+            //mainCollider = parent.GetComponent<Collider>();
             gunRB.isKinematic = true;
         }
         else
@@ -78,27 +81,28 @@ public class ProjectileShooter : MonoBehaviour
     {
         if (gunActive && Input.touchCount > 0)
         {
-            touch = Input.GetTouch(0);
-           
-
-            if (touch.phase == TouchPhase.Began)
+            if (!EventSystem.current.IsPointerOverGameObject())
             {
-                shooting = true;
-                mainCollider.enabled = true;
-                animator.SetTrigger("leaveCover");
+                touch = Input.GetTouch(0);
+
+
+                if (touch.phase == TouchPhase.Began)
+                {
+                    shooting = true;
+                    //mainCollider.enabled = true;
+                    mainCollider.center = initColliderPos;
+                }
+
+                if (touch.phase == TouchPhase.Ended)
+                {
+                    shooting = false;
+                    mainCollider.center = new Vector3(initColliderPos.x, initColliderPos.y - 1.5f, initColliderPos.z);
+                    //mainCollider.enabled = false;
+                    transform.localRotation = Quaternion.identity;
+                }
+                animator.SetBool("shooting", shooting);
 
             }
-
-            if (touch.phase == TouchPhase.Ended)
-            {
-                shooting = false;
-                mainCollider.enabled = false;
-                animator.SetTrigger("takeCover");
-                transform.localRotation = Quaternion.identity;
-            }
-            animator.SetBool("shooting", shooting);
-
-            
         }
 
         if (!shooting)
@@ -112,15 +116,26 @@ public class ProjectileShooter : MonoBehaviour
 
 
     }
+    public void StartGun()
+    {
+        gunActive = true;
+        shooting = false;
+    }
+    public void StopGun()
+    {
+        gunActive = false;
+    }
     public void SetAnimator(Animator animator)
     {
         this.animator = animator;
         animator.SetFloat("speedMultiplier", shootSpeedMultiplier);
     }
-    public void SetCollider(Collider collider)
+    public void SetCollider(CapsuleCollider collider)
     {
         this.mainCollider = collider;
-        collider.enabled = false;
+        initColliderPos = mainCollider.center;
+        mainCollider.center = new Vector3(initColliderPos.x, initColliderPos.y - 1.5f, initColliderPos.z);
+        //collider.enabled = state;
     }
     public void GunDrop()
     {

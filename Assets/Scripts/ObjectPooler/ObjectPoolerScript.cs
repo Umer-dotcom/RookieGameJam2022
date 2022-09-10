@@ -11,7 +11,9 @@ public enum OPTag
     NAUGHTYEMOJI,
     CRIT,
     HIT,
-    SNOWEFFECT
+    SNOWEFFECT,
+    ZZZ,
+    ENEMYBULLET
 }
 public class ObjectPoolerScript : MonoBehaviour
 {

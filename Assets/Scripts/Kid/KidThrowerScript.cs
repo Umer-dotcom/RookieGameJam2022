@@ -1,30 +1,47 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class KidThrowerScript : Kid
 {
     [Header("Throwing")]
-    [SerializeField] private GameObject snowPrefab;
+    //[SerializeField] private GameObject snowPrefab;
     [SerializeField] private Transform snowSpawn;
     [SerializeField] private Transform target;
-    [SerializeField] private GameObject projectilesContainer;
     [SerializeField] private KidThrowerSO sO;
 
+    public static event Action ThrowerKilledEvent = delegate { };
 
 
+    KidState kidState = KidState.NONE;
+    //RagdollEnabler ragdollEnabler;
+
+    int ragdollForce = 20;
     float timeInHidePhase = 0;
     int cycleThrowCount = 0;
     bool hiding = true;
     Animator animator;
 
+    int state1;
+    int state2;
+    int state3;
+    private void Awake()
+    {
+        
+    }
+
     protected new void Start()
     {
         base.Start();
-
+        poolerScript = ObjectPoolerScript.Instance;
+        ragdollEnabler = GetComponent<RagdollEnabler>();
         animator = GetComponent<Animator>();
         animator.SetFloat("speed", sO.SpeedMultiplier);
+
+        state1 = stateTransitionValue;
+        state2 = stateTransitionValue * 2;
+        state3 = hitsToKill - 1;
     }
     void Update()
     {
@@ -61,14 +78,14 @@ public class KidThrowerScript : Kid
     void CreateTheBallAndThrow()
     {
         //Called when the throw animation reaches a specific frame
-        GameObject projectile = Instantiate(snowPrefab, snowSpawn);
-        projectile.transform.parent = projectilesContainer.transform;
+        GameObject projectile = poolerScript.SpawnFromPool(OPTag.ENEMYBULLET, snowSpawn.position, Quaternion.identity);
+        
         projectile.GetComponent<Rigidbody>().isKinematic = false;
-        Vector3 randomInaccuracy = new(Random.Range(-sO.MaxInaccuracy, sO.MaxInaccuracy), Random.Range(-sO.MaxInaccuracy, sO.MaxInaccuracy), 0);
+        Vector3 randomInaccuracy = new(UnityEngine.Random.Range(-sO.MaxInaccuracy, sO.MaxInaccuracy), UnityEngine.Random.Range(-sO.MaxInaccuracy, sO.MaxInaccuracy), 0);
         Vector3 throwDirection = target.position - (snowSpawn.position + randomInaccuracy);
         projectile.GetComponent<Rigidbody>().AddForce(sO.Force * throwDirection.normalized, ForceMode.Impulse);
         
-        Destroy(projectile, 3f);
+        //Destroy(projectile, 3f);
         cycleThrowCount++;
     }
 
@@ -76,17 +93,58 @@ public class KidThrowerScript : Kid
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-
+            bool stateChanged = false;
             hitCount++;
+
+            if (kidState == KidState.NONE && (hitCount >= state1 && hitCount < state2))
+            {
+                stateChanged = true;
+                kidState = KidState.CALM;
+
+
+            }
+            else if (kidState == KidState.CALM && (hitCount >= state2 && hitCount < state3))
+            {
+                stateChanged = true;
+                kidState = KidState.NAUGHTY;
+
+            }
+            else if (kidState == KidState.NAUGHTY && hitCount >= state3)
+            {
+                stateChanged = true;
+                kidState = KidState.ANGRY;
+
+            }
+
+            if (stateChanged)
+            {
+                switch (kidState)
+                {
+                    case KidState.CALM:
+                        GetAggressive(0.5f);
+
+                        poolerScript.SpawnFromPool(OPTag.NAUGHTYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+                        break;
+                    case KidState.NAUGHTY:
+                        GetAggressive(1f);
+
+                        poolerScript.SpawnFromPool(OPTag.NAUGHTYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+                        break;
+                    case KidState.ANGRY:
+                        GetAggressive(1.5f);
+                        poolerScript.SpawnFromPool(OPTag.ANGRYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+                        break;
+
+                }
+            }
+
             if (hitCount >= hitsToKill)
             {
+                ThrowerKilledEvent?.Invoke();
                 kidActive = false;
                 //animator.enabled = false;
                 Rigidbody[] rigidbodies = ragdollEnabler.EnableRagdoll();
-                //foreach (Rigidbody rb in rigidbodies)
-                //{
-                //    rb.isKinematic = false;
-                //}
+
                 
                 Vector3 forceDirection = -(collision.contacts[0].point - transform.position).normalized;
                 forceDirection.y = 0;
@@ -94,17 +152,12 @@ public class KidThrowerScript : Kid
                 {
 
                     rb.AddForce(forceDirection * 20f, ForceMode.Impulse);
-                    //rb.isKinematic = false;
-
-                    //blendShapeController.StomachFilled();
+                    
                 }
 
 
                 Collider mainCollider = GetComponent<Collider>();
-                //foreach (Collider col in colliders)
-                //{
-                //    col.enabled = true;
-                //}
+                
                 mainCollider.enabled = false;
                 StartCoroutine(TurnKidsOffDelay(3f));
             }
@@ -113,7 +166,94 @@ public class KidThrowerScript : Kid
     protected override IEnumerator TurnKidsOffDelay(float duration)
     {
         yield return new WaitForSeconds(duration);
-        Instantiate(sleepEffect, ragdollEnabler.GetRagdollRoot().position + new Vector3(0, 1, 0), Quaternion.identity);
+        poolerScript.SpawnFromPool(OPTag.ZZZ, ragdollEnabler.GetRagdollRoot().position + new Vector3(0, 1, 0), Quaternion.identity);
         ragdollEnabler.DisableAllRigidbodies();
+    }
+
+
+    private void GetAggressive(float value)
+    {
+        animator.SetFloat("speed", sO.SpeedMultiplier + value);
+    }
+
+
+    public void HeadShot(Collision collision)
+    {
+        bool stateChanged = false;
+        //if (ID != GetKidID()) return;
+        hitCount += 3;
+
+
+        if (kidState == KidState.NONE && (hitCount >= state1 && hitCount < state2))
+        {
+            stateChanged = true;
+            kidState = KidState.CALM;
+
+            
+
+        }
+        else if (kidState == KidState.CALM && (hitCount >= state2 && hitCount < state3))
+        {
+            stateChanged = true;
+            kidState = KidState.NAUGHTY;
+
+            
+        }
+        else if (kidState == KidState.NAUGHTY && hitCount >= state3)
+        {
+            stateChanged = true;
+            kidState = KidState.ANGRY;
+
+        }
+
+        if (stateChanged)
+        {
+            switch (kidState)
+            {
+                case KidState.CALM:
+                    GetAggressive(0.5f);
+
+                    poolerScript.SpawnFromPool(OPTag.NAUGHTYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+                    break;
+                case KidState.NAUGHTY:
+                    GetAggressive(1);
+
+                    poolerScript.SpawnFromPool(OPTag.NAUGHTYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+                    break;
+                case KidState.ANGRY:
+                    GetAggressive(1.5f);
+                    poolerScript.SpawnFromPool(OPTag.ANGRYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+                    break;
+
+            }
+        }
+
+
+
+
+        if (hitCount >= hitsToKill)
+        {
+            ThrowerKilledEvent?.Invoke();
+            ragdollForce = 50;
+            kidActive = false;
+            Rigidbody[] rigidbodies = ragdollEnabler.EnableRagdoll();
+            Vector3 forceDirection = -(collision.contacts[0].point - transform.position).normalized;
+            forceDirection.y = 0;
+
+            foreach (Rigidbody rb in rigidbodies)
+            {
+
+                rb.AddForce(forceDirection * ragdollForce, ForceMode.Impulse);
+
+            }
+
+
+
+            Collider mainCollider = GetComponent<Collider>();
+            mainCollider.enabled = false;
+            StartCoroutine(TurnKidsOffDelay(3f));
+
+
+        }
     }
 }

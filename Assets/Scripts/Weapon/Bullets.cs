@@ -1,18 +1,19 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using ComboSystem.Scripts;
 public class Bullets : MonoBehaviour
 {
-    //[SerializeField]
-    //private ParticleSystem[] _particles;
+    
     private const string kidTag = "Kid";
     private const string headTag = "Head";
-    GameObject _hitEffect;
     ObjectPoolerScript poolerScript;
     private MeshRenderer meshRenderer;
     private Collider mainColider;
     private Rigidbody rb;
+
+    public static event Action<int> HitEvent = delegate { };
+
     private void Awake()
     {
         poolerScript = ObjectPoolerScript.Instance;
@@ -22,6 +23,7 @@ public class Bullets : MonoBehaviour
     }
     private void OnEnable()
     {
+        
         meshRenderer.enabled = true;
         rb.velocity = Vector3.zero;
 
@@ -30,34 +32,23 @@ public class Bullets : MonoBehaviour
     }
     private void OnDisable()
     {
-        //this.GetComponent<MeshRenderer>().enabled = false;
-        //this.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        //this.GetComponent<Collider>().enabled = false;
 
         meshRenderer.enabled = false;
         rb.velocity = Vector3.zero;
         mainColider.enabled = false;
         //_hitEffect.SetActive(false);
+        
 
     }
     private void Start()
     {
         
-        //_hitEffect = transform.Find("SnowballExplosion").gameObject;
-        //_hitEffect.SetActive(false);
+        
     }
+    
     private void OnCollisionEnter(Collision collision)
     {
-
-        //Debug.Log("Colliding with something");
         Debug.Log(collision.gameObject.tag);
-
-        //this.GetComponent<MeshRenderer>().enabled = false;
-        //this.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        //this.GetComponent<Collider>().enabled = false;
-        // _hitEffect.transform.position = this.transform.position;
-
-        //if (!_hitEffect.activeInHierarchy) _hitEffect.SetActive(true);
 
         meshRenderer.enabled = false;
         rb.velocity = Vector3.zero;
@@ -67,18 +58,17 @@ public class Bullets : MonoBehaviour
 
         if (collision.gameObject.CompareTag(kidTag))
         {
+            HitEvent?.Invoke(1);
             Kid kidScript = collision.gameObject.GetComponent<Kid>();
             //if (kidSScript)
             if (kidScript.GetHitCount() >= kidScript.GetHitsToKill() - 1)
             {
                 poolerScript.SpawnFromPool(OPTag.HIT, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
-                //ParticleSystem ps = _particles[Random.Range(0, 1)];
-                //ps.gameObject.transform.position = this.transform.position;
-
-                //ps.Play();
+                
             }
         } else if (collision.gameObject.CompareTag(headTag))
         {
+            HitEvent?.Invoke(3);
             poolerScript.SpawnFromPool(OPTag.CRIT, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
         }
 

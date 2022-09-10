@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - EnemyBullet
   - Head
+  - LoseArea
   layers:
   - Default
   - TransparentFX

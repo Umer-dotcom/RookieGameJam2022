@@ -1,14 +1,33 @@
 
 using System.Collections;
 using UnityEngine;
+using System;
+public enum KidState
+{
+    NONE,
+    CALM,
+    NAUGHTY,
+    ANGRY
+}
 
 public class KidInfantryScript : Kid
 {
-    ObjectPoolerScript poolerScript;
+
+
+    public static event Action InfantryKilledEvent = delegate { };
+
+    KidState kidState = KidState.NONE;
+    //bool[] kidState;
     static int kidInfantryCount = 0;
     int kidInfantryID = 0;
     BlendShapeController blendShapeController;
     KidMovementScript kidMovementScript;
+
+    int cycleThrowCount = 0;
+
+    int state1;
+    int state2;
+    int state3;
 
     float ragdollForce = 25f;
     private void OnEnable()
@@ -25,9 +44,10 @@ public class KidInfantryScript : Kid
     }
     private void Awake()
     {
-        poolerScript = ObjectPoolerScript.Instance;
+        //poolerScript = ObjectPoolerScript.Instance;
         kidMovementScript = GetComponent<KidMovementScript>();
         ragdollEnabler = GetComponent<RagdollEnabler>();
+        poolerScript = ObjectPoolerScript.Instance;
     }
 
     protected new void Start()
@@ -38,7 +58,11 @@ public class KidInfantryScript : Kid
         kidInfantryID = kidInfantryCount;
         kidInfantryCount++;
         blendShapeController = GetComponentInChildren<BlendShapeController>();
-        
+
+        state1 = stateTransitionValue;
+        state2 = stateTransitionValue * 2;
+        state3 = hitsToKill - 1;
+
     }
     public BlendShapeController GetBlendShapeController()
     {
@@ -46,31 +70,52 @@ public class KidInfantryScript : Kid
     }
     public void HeadShot(Collision collision)
     {
-        Debug.Log("HeadShot!!");
+        bool stateChanged = false;
         //if (ID != GetKidID()) return;
         hitCount += 3;
-        //int state1 = stateTransitionValue;
-        //int state2 = stateTransitionValue * 2;
-        //int state3 = hitsToKill - 1;
-        //poolerScript.SpawnFromPool(OPTag.CRIT, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
-        kidMovementScript.GetAggressive();
-        //if (hitCount == state1)
-        //{
-        //    kidMovementScript.GetAggressive();
-        //    poolerScript.SpawnFromPool(OPTag.NAUGHTYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+        
+        
+        if (kidState == KidState.NONE && (hitCount >= state1 && hitCount < state2))
+        {
+            stateChanged = true;
+            kidState = KidState.CALM;
+         
 
-        //}
-        //else if (hitCount == state2)
-        //{
-        //    kidMovementScript.GetAggressive();
+        }
+        else if (kidState == KidState.CALM && (hitCount >= state2 && hitCount < state3))
+        {
+            stateChanged = true;
+            kidState = KidState.NAUGHTY;
+            
+        }
+        else if (kidState == KidState.NAUGHTY && hitCount >= state3)
+        {
+            stateChanged = true;
+            kidState = KidState.ANGRY;
+            
+        }
 
-        //    poolerScript.SpawnFromPool(OPTag.NAUGHTYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
-        //}
-        //else if (hitCount == state3)
-        //{
-        //    kidMovementScript.GetAggressive();
-        //    poolerScript.SpawnFromPool(OPTag.ANGRYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
-        //}
+        if (stateChanged)
+        {
+            switch (kidState)
+            {
+                case KidState.CALM:
+                    kidMovementScript.GetAggressive();
+
+                    poolerScript.SpawnFromPool(OPTag.NAUGHTYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+                    break;
+                case KidState.NAUGHTY:
+                    kidMovementScript.GetAggressive();
+
+                    poolerScript.SpawnFromPool(OPTag.NAUGHTYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+                    break;
+                case KidState.ANGRY:
+                    kidMovementScript.GetAggressive();
+                    poolerScript.SpawnFromPool(OPTag.ANGRYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+                    break;
+
+            }
+        }
 
 
 
@@ -83,8 +128,7 @@ public class KidInfantryScript : Kid
             Rigidbody[] rigidbodies = ragdollEnabler.EnableRagdoll();
             Vector3 forceDirection = -(collision.contacts[0].point - transform.position).normalized;
             forceDirection.y = 0;
-            //collision.gameObject.GetComponent<Collider>().enabled = false;
-            //collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            
             foreach (Rigidbody rb in rigidbodies)
             {
 
@@ -107,28 +151,53 @@ public class KidInfantryScript : Kid
         if (collision.gameObject.CompareTag("Bullet"))
         {
 
-
+            bool stateChanged = false;
             hitCount++;
-            int state1 = stateTransitionValue;
-            int state2 = stateTransitionValue * 2;
-            int state3 = hitsToKill - 1;
-
-            if (hitCount == state1)
-            {
-                kidMovementScript.GetAggressive();
-                poolerScript.SpawnFromPool(OPTag.NAUGHTYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
-
-            } else if (hitCount == state2)
-            {
-                kidMovementScript.GetAggressive();
-
-                poolerScript.SpawnFromPool(OPTag.NAUGHTYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
-            } else if (hitCount == state3)
-            {
-                kidMovementScript.GetAggressive();
-                poolerScript.SpawnFromPool(OPTag.ANGRYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
-            }
             
+            
+            if (kidState == KidState.NONE && (hitCount >= state1 && hitCount < state2))
+            {
+                stateChanged = true;
+                kidState = KidState.CALM;
+                
+
+            }
+            else if (kidState == KidState.CALM && (hitCount >= state2 && hitCount < state3))
+            {
+                stateChanged = true;
+                kidState = KidState.NAUGHTY;
+                
+            }
+            else if (kidState == KidState.NAUGHTY && hitCount >= state3)
+            {
+                stateChanged = true;
+                kidState = KidState.ANGRY;
+
+            }
+
+            if (stateChanged)
+            {
+                switch (kidState)
+                {
+                    case KidState.CALM:
+                        kidMovementScript.GetAggressive();
+
+                        poolerScript.SpawnFromPool(OPTag.NAUGHTYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+                        break;
+                    case KidState.NAUGHTY:
+                        kidMovementScript.GetAggressive();
+
+                        poolerScript.SpawnFromPool(OPTag.NAUGHTYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+                        break;
+                    case KidState.ANGRY:
+                        kidMovementScript.GetAggressive();
+                        poolerScript.SpawnFromPool(OPTag.ANGRYEMOJI, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+                        break;
+
+                }
+            }
+
+
 
 
             if (hitCount >= hitsToKill)
@@ -157,10 +226,12 @@ public class KidInfantryScript : Kid
 
         }
     }
+    
+    
     protected override IEnumerator TurnKidsOffDelay(float duration)
     {
         yield return new WaitForSeconds(duration);
-        Instantiate(sleepEffect, ragdollEnabler.GetRagdollRoot().position + new Vector3(0, 1, 0), Quaternion.identity);
+        poolerScript.SpawnFromPool(OPTag.ZZZ, ragdollEnabler.GetRagdollRoot().position + new Vector3(0, 1, 0), Quaternion.identity);
         ragdollEnabler.DisableAllRigidbodies();
     }
 

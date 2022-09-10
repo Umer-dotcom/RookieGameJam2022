@@ -6,7 +6,9 @@ public class Kid : MonoBehaviour
 {
     
     [SerializeField] protected int hitsToKill;
-    [SerializeField] protected GameObject sleepEffect;
+    //[SerializeField] protected GameObject sleepEffect;
+
+    protected ObjectPoolerScript poolerScript;
     
 
     protected int stateTransitionValue;
@@ -21,6 +23,7 @@ public class Kid : MonoBehaviour
     private void Awake()
     {
         ragdollEnabler = GetComponent<RagdollEnabler>();
+        
     }
 
     public virtual void Start()

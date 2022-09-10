@@ -7,7 +7,15 @@ public class KidMovementScript : MonoBehaviour
 {
     [SerializeField] float initSpeed;
     [SerializeField] float maxSpeed;
+    [SerializeField] private KidThrowerSO sO;
+    [SerializeField] private Transform snowSpawn;
+    //[SerializeField] private Transform snowTarget;
+    
 
+    ObjectPoolerScript poolerScript;
+    
+    
+    
     private float speedIncrement;
     public Vector3 target;
 
@@ -21,12 +29,22 @@ public class KidMovementScript : MonoBehaviour
     private const string isRunning = "isRunning";
     private const string jump = "jump";
     private const string landed = "landed";
+    private const string throwTag = "throw";
+    private const string throwSpeedTag = "throwSpeed";
 
     private bool kidActive = true;
     private bool hasReachedTarget = false;
     private bool hasReachedDestination = false;
 
-    
+    public void OnEnterDanger()
+    {
+        
+            
+            Agent.enabled = false;
+            Animator.SetFloat(throwSpeedTag, sO.SpeedMultiplier);
+            Animator.SetTrigger(throwTag);
+    }
+
 
     int wayPointIndex = 0;
 
@@ -48,6 +66,7 @@ public class KidMovementScript : MonoBehaviour
 
     private void Start()
     {
+        poolerScript = ObjectPoolerScript.Instance;
         StartCoroutine(FollowTarget());
         Agent.speed = initSpeed;
         speedIncrement = (maxSpeed - initSpeed) / 3;
@@ -63,6 +82,21 @@ public class KidMovementScript : MonoBehaviour
         {
             Agent.speed += speedIncrement;
         }
+    }
+
+    void CreateTheBallAndThrow()
+    {
+        //Called when the throw animation reaches a specific frame
+        GameObject projectile = poolerScript.SpawnFromPool(OPTag.ENEMYBULLET, snowSpawn.position, Quaternion.identity);
+        projectile.GetComponent<Rigidbody>().isKinematic = false;
+        Vector3 randomInaccuracy = new(Random.Range(-sO.MaxInaccuracy, sO.MaxInaccuracy), Random.Range(-sO.MaxInaccuracy, sO.MaxInaccuracy), 0);
+        //target.y += 1.5f;
+        Vector3 throwDirection = target - (snowSpawn.position + randomInaccuracy);
+        
+        projectile.GetComponent<Rigidbody>().AddForce(sO.Force * throwDirection.normalized, ForceMode.Impulse);
+
+        //Destroy(projectile, 3f);
+        //cycleThrowCount++;
     }
 
     private void HandleLinkEnd()
