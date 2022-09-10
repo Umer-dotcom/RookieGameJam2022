@@ -34,9 +34,9 @@ public class ProjectileShooter : MonoBehaviour
 
     private bool shooting = false;
     [SerializeField]
-    private float gunHeat = 0f;
+    public float gunHeat = 0f;
     [SerializeField]
-    private float shootSpeedMultiplier;
+    public float shootSpeedMultiplier;
     [SerializeField]
     private ParticleSystem MuzzleFlash;
 
