@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private int hitsToKill;
-    //[SerializeField] private int hitsRequiredToRage = 10;
+
     public static event Action playerDeathEvent = delegate { };
-    RageScript rageController;
+    //public static event Action playerHitEvent = delegate { };
 
     private int hitCount = 0;
     private bool playerActive = true;
@@ -16,15 +16,14 @@ public class PlayerScript : MonoBehaviour
     protected Collider[] colliders;
     private ProjectileShooter gun;
     Collider mainCol;
-
-
+    //CinemachineShake cinemachineShake;
+    // Start is called before the first frame update
     void Start()
     {
         mainCol = GetComponent<Collider>();
         gun = GetComponentInChildren<ProjectileShooter>();
         gun.SetAnimator(GetComponent<Animator>());
         gun.SetCollider(mainCol);
-        rageController = GetComponent<RageScript>();
         //cinemachineShake = CinemachineShake.INSTANCE;
         rigidbodies = GetComponentsInChildren<Rigidbody>();
         colliders = GetComponentsInChildren<Collider>();
@@ -38,17 +37,6 @@ public class PlayerScript : MonoBehaviour
         }
         
         //mainCol.enabled = true;
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (rageController.IsRageAvailable() && playerActive)
-            {
-                gun.StopGun();
-                rageController.GoIntoRageMode();
-            }
-        }
     }
 
     protected void OnTriggerEnter(Collider other)    

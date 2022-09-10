@@ -46,11 +46,6 @@ public class KidInfantryScript : Kid
     }
     public void HeadShot(Collision collision)
     {
-        hitCount += 3;
-        kidMovementScript.GetAggressive();
-
-    public void HeadShot(Collision collision)
-    {
         Debug.Log("HeadShot!!");
         //if (ID != GetKidID()) return;
         hitCount += 3;
@@ -90,7 +85,6 @@ public class KidInfantryScript : Kid
             forceDirection.y = 0;
             //collision.gameObject.GetComponent<Collider>().enabled = false;
             //collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-
             foreach (Rigidbody rb in rigidbodies)
             {
 
