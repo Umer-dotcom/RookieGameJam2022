@@ -38,6 +38,37 @@ public class KidInfantryScript : Kid
     {
         return blendShapeController;
     }
+<<<<<<< Updated upstream
+=======
+    public void HeadShot(Collision collision)
+    {
+        hitCount += 3;
+        kidMovementScript.GetAggressive();
+
+
+
+
+        if (hitCount >= hitsToKill)
+        {
+
+            ragdollForce = 50f;
+            kidActive = false;
+            Rigidbody[] rigidbodies = ragdollEnabler.EnableRagdoll();
+            Vector3 forceDirection = -(collision.contacts[0].point - transform.position).normalized;
+            forceDirection.y = 0;
+            foreach (Rigidbody rb in rigidbodies)
+            {
+
+                rb.AddForce(forceDirection * ragdollForce, ForceMode.Impulse);
+
+            }
+            
+
+
+            Collider mainCollider = GetComponent<Collider>();
+            mainCollider.enabled = false;
+            StartCoroutine(TurnKidsOffDelay(3f));
+>>>>>>> Stashed changes
 
 
     protected void OnCollisionEnter(Collision collision)

@@ -155,6 +155,14 @@ public class ProjectileShooter : MonoBehaviour
 
 
     }
+    public void StopGun()
+    {
+        gunActive = false;
+    }
+    public void StartGun()
+    {
+        gunActive = true;
+    }
     public void SetAnimator(Animator animator)
     {
         this.animator = animator;
