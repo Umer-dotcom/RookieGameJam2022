@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f3a79248cb7b249aa6a8becdcbde1f, type: 3}
+  m_Name: Level_01
+  m_EditorClassIdentifier: 
+  levelBoundaryLower: 0
+  comboFont: {fileID: 11400000, guid: c8510d918e07bfd4e8e7169f1ed0c4d3, type: 2}
+  popUpFont: {fileID: 11400000, guid: b98236ab553b7aa4083a4ae34281cd65, type: 2}
+  wordsFile: {fileID: 4900000, guid: d4ac87b36f5f10d429ceee5b48306f48, type: 3}
+  popUpMaximumScale: 1.2

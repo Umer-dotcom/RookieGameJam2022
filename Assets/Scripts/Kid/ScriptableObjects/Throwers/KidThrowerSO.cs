@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Thrower", menuName = "Kid/New Thrower Type")]
+[CreateAssetMenu(fileName = "New Thrower", menuName = "SO/Kid/New Thrower Type")]
 public class KidThrowerSO : DescriptionBaseSO
 {
     [Header("Throwing")]

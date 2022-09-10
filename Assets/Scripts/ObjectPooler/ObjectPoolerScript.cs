@@ -6,7 +6,12 @@ public enum OPTag
 {
     BULLET,
     KID,
-    KID2
+    KID2,
+    ANGRYEMOJI,
+    NAUGHTYEMOJI,
+    CRIT,
+    HIT,
+    SNOWEFFECT
 }
 public class ObjectPoolerScript : MonoBehaviour
 {
@@ -32,7 +37,7 @@ public class ObjectPoolerScript : MonoBehaviour
 
     public List<Pool> poolList;
     public Dictionary<OPTag, Queue<GameObject>> poolDictionary;
-
+    public GameObject objectContainer;
 
     
     void Start()
@@ -44,6 +49,7 @@ public class ObjectPoolerScript : MonoBehaviour
             for (int i = 0; i < pool.size; i++)
             {
                 GameObject obj = Instantiate(pool.prefab);
+                obj.transform.parent = objectContainer.transform;
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
