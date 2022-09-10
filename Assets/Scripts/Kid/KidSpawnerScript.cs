@@ -4,112 +4,106 @@ using UnityEngine;
 
 public class KidSpawnerScript : MonoBehaviour
 {
-    public class Kid
-    {
-        GameObject kidPrefab;
-        int iceCreamNeeded;
-        string tag;
-    }
-
-    //public List<Kid> kidPrefabList;
-    //public GameObject kidPrefab;
     public int maxKidCount;
     public float kidSpawnInterval;
-    public Transform target;
+    public Transform startPoint;
+    public Transform destination;
     public GameObject debugSphere;
+    
 
     private ObjectPoolerScript poolerScript;
     private Vector3[,] wayPointMatrix = new Vector3[4, 4];
-    private Ray kidToTargetRay;
+    private Ray startToTargetRay;
     private float lastKidSpawn = 0;
     private float spawnedKidCount = 0;
-    private List<KidScript> kidsList = new List<KidScript>();
-    private void Awake()
+    private List<KidMovementScript> kidsList = new List<KidMovementScript>();
+    private void OnEnable()
     {
-        
+        WayPointScript._onWaypointEnter += SetKidTarget;
+    }
+    private void OnDisable()
+    {
+        WayPointScript._onWaypointEnter -= SetKidTarget;
     }
     void Start()
     {
+        Instantiate(debugSphere, startPoint.position, Quaternion.identity);
         poolerScript = ObjectPoolerScript.Instance;
-        Vector3 directionVector = target.position - transform.position;
-        float distanceBWVectors = Vector3.Distance(target.position, transform.position);
-        float wayPointOffsetLength = distanceBWVectors / 4f;
-        float wayPointOffsetWidth = wayPointOffsetLength - 1;
-        kidToTargetRay = new Ray(transform.position, directionVector);
+        Vector3 directionVector = destination.position - startPoint.position;
+        float distanceBWVectors = Vector3.Distance(destination.position, startPoint.position);
+        float wayPointOffsetLength = distanceBWVectors / 6f;
+        float wayPointOffsetWidth = wayPointOffsetLength;
+        startToTargetRay = new Ray(new (startPoint.position.x, startPoint.position.y, startPoint.position.z - 3.5f), directionVector);
         for (int i  = 0; i < 4; i++)
         {
             for (int j = 0; j < 4; j++)
             {
-                //if (j - 2 == 0) continue;
-                Vector3 pointOnRay = kidToTargetRay.GetPoint(wayPointOffsetLength * i);
+                Vector3 pointOnRay = startToTargetRay.GetPoint(wayPointOffsetLength * i);
                 Vector3 wayPointPosition = new(pointOnRay.x + wayPointOffsetWidth * (j - 2f) + wayPointOffsetWidth / 2f, pointOnRay.y, pointOnRay.z);
-                //Debug.Log( i + ", " + j +  " = "  +  pointOnRay.x );
+
                 Instantiate(debugSphere, wayPointPosition, Quaternion.identity);
                 wayPointMatrix[i, j] = wayPointPosition;
             }
         }
-        //FindObjectOfType<KidScript>().ReachedTargetEvent += SetKidTarget;
-        //FindObjectOfType<WayPointScript>().WayPointEnterEvent += SetKidTarget;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(kidToTargetRay.origin, kidToTargetRay.direction * 20f, Color.blue);
+        //Debug.DrawRay(kidToTargetRay.origin, kidToTargetRay.direction * 20f, Color.blue);
         lastKidSpawn += Time.deltaTime;
 
         if (spawnedKidCount < maxKidCount && lastKidSpawn >= kidSpawnInterval)
         {
-            Debug.Log("Kid Created");
             SpawnKid();
             lastKidSpawn = 0;
         }
-        foreach (KidScript kid in kidsList)
-        {
-            if (kid.IsTargetReached())
-            {
-                SetKidTarget(kid);
-            }
-        }
+        
 
 
     }
     void SpawnKid()
     {
         OPTag[] kidObjectTags = new[] { OPTag.KID, OPTag.KID2 };
-        ;
+        
 
         GameObject kidSpawned = poolerScript.SpawnFromPool(kidObjectTags[Random.Range(0, kidObjectTags.Length)], transform.position, Quaternion.identity);
-        KidScript kidScript = kidSpawned.GetComponentInChildren<KidScript>();
-        if (kidScript == null)
-        {
-            Debug.Log("Kid Script is null");
-        }
+        KidMovementScript kidScript = kidSpawned.GetComponentInChildren<KidMovementScript>();
+        
+        if (kidScript == null) return;
         
         kidsList.Add(kidScript);
-        SetKidTarget(kidScript);
+        kidScript.SetTarget(startPoint.position);
         spawnedKidCount++;
         
     }
-    void SetKidTarget(KidScript kidScript)
+    public void SetKidTarget(int ID)
     {
-        if (kidScript.GetWPIndex() == 4)
+        
+        KidMovementScript kidScript = null;
+        foreach (KidMovementScript kid in kidsList)
         {
-            Debug.Log("Reached final target.");
-            kidScript.SetTarget(target.position);
+            if (kid.GetID() == ID) { 
+                kidScript = kid;
+                break;
+            }
+        }
+
+        if (kidScript == null) return;
+
+        kidScript.ReachedTarget(ID);
+        if (kidScript.WPIndex() == 4)
+        {
+            kidScript.SetTarget(destination.position);
             return;
         }
-        else if (kidScript.GetWPIndex() > 4 )
+        else if (kidScript.WPIndex() > 4 )
         {
-            Debug.Log("Given wayPointIndex exceeds index size.");
             return;
         }
         int targetOffsetIndex = Random.Range(0, 3);
-        Vector3 targetWayPoint = wayPointMatrix[kidScript.GetWPIndex(), targetOffsetIndex];
+        Vector3 targetWayPoint = wayPointMatrix[kidScript.WPIndex(), targetOffsetIndex];
         kidScript.SetTarget(targetWayPoint);
-    }
-    public void ModifyTarget()
-    {
-
     }
 }

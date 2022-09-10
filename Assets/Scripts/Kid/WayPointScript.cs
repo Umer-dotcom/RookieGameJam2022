@@ -1,34 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class WayPointScript : MonoBehaviour
 {
-
-    public delegate void WayPointEnterDelegate(KidScript kidScript);
-    public event WayPointEnterDelegate WayPointEnterEvent;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    public static event Action<int> _onWaypointEnter = delegate { };
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Kid"))
         {
-            Debug.Log("ReachedTarget");
-            KidScript kidScript = other.GetComponentInChildren<KidScript>();
+            
+            KidInfantryScript kidScript = other.GetComponentInChildren<KidInfantryScript>();
             if (kidScript != null)
             {
-                kidScript.ReachedTarget();
                 
-                //WayPointEnterEvent?.Invoke(kidScript);
+                _onWaypointEnter(kidScript.GetKidInfantryID());
+                
             }
             
 

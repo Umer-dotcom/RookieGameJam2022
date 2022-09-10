@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f23189a47e9e24ca0e5afcb8e271b9, type: 3}
+  m_Name: Medium
+  m_EditorClassIdentifier: 
+  _guid: 3f1bf9d9801d9f647874d111b65daf60
+  description: Kid Thrower with medium abilities.
+  force: 25
+  speedMultiplier: 2
+  throwsPerCycle: 3
+  maxInaccuracy: 1
+  hidePhaseDuration: 3

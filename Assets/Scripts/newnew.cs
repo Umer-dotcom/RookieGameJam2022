@@ -13,6 +13,10 @@ public class newnew : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        case
+
+        if ()
+        {
+
+        }
     }
 }
