@@ -18,10 +18,8 @@ public class ProjectileShooter : MonoBehaviour
 
     [SerializeField] CinemachineVirtualCamera virtualCamera;
 
-    [SerializeField]
-    private GameObject[] projectiles;
-    [SerializeField]
-    private GameObject projectilesContainer;
+    //[SerializeField]
+    //private GameObject projectilesContainer;
     [SerializeField]
     private Transform spawnPos;
     [SerializeField]
@@ -33,8 +31,6 @@ public class ProjectileShooter : MonoBehaviour
     private bool gunActive = true;
 
     private bool shooting = false;
-    [SerializeField]
-    public float gunHeat = 0f;
     [SerializeField]
     public float shootSpeedMultiplier;
     [SerializeField]
@@ -49,17 +45,20 @@ public class ProjectileShooter : MonoBehaviour
     Vector3 InitCameraPosition;
     private void Awake()
     {
-        if (instance == null)
+        if (instance != null && instance != this)
         {
-            instance = this;
-            gunRB = GetComponent<Rigidbody>();
-            poolerScript = ObjectPoolerScript.Instance;
-            //animator = GetComponent<Animator>();
-            //mainCollider = parent.GetComponent<Collider>();
-            gunRB.isKinematic = true;
+            Destroy(this.gameObject);
         }
         else
-            Destroy(this);
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+            gunRB = GetComponent<Rigidbody>();
+            poolerScript = ObjectPoolerScript.Instance;
+
+            gunRB.isKinematic = true;
+        }
+            //Destroy(this);
     }
 
     private void Start()
@@ -105,13 +104,13 @@ public class ProjectileShooter : MonoBehaviour
             }
         }
 
-        if (!shooting)
-        {
-            Vector3 velocity = Vector3.zero;
-            float smoothTime = 0.3f;
-            virtualCamera.LookAt.position = Vector3.SmoothDamp(virtualCamera.LookAt.position, InitCameraPosition, ref velocity, smoothTime);
+        //if (!shooting)
+        //{
+        //    Vector3 velocity = Vector3.zero;
+        //    float smoothTime = 0.3f;
+        //    virtualCamera.LookAt.position = Vector3.SmoothDamp(virtualCamera.LookAt.position, InitCameraPosition, ref velocity, smoothTime);
 
-        }
+        //}
         Debug.DrawRay(spawnPos.position, spawnPos.forward * 25f, Color.red);
 
 
@@ -156,10 +155,8 @@ public class ProjectileShooter : MonoBehaviour
     {
         MuzzleFlash.Play();
         GameObject projectile = poolerScript.SpawnFromPool(OPTag.BULLET, spawnPos.position, Quaternion.identity);/*Instantiate(projectiles[Random.Range(0, projectiles.Length - 1)], spawnPos.position, Quaternion.identity);*/
-        projectile.transform.parent = projectilesContainer.transform;
+        //projectile.transform.parent = projectilesContainer.transform;
         projectile.GetComponent<Rigidbody>().isKinematic = false;
         projectile.GetComponent<Rigidbody>().AddForce(shootForce * spawnPos.forward, ForceMode.Impulse);
-
-        //Destroy(projectile, 5f);
     }
 }

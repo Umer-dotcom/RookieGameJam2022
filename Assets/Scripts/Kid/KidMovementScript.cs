@@ -34,7 +34,7 @@ public class KidMovementScript : MonoBehaviour
 
     private bool kidActive = true;
     private bool hasReachedTarget = false;
-    private bool hasReachedDestination = false;
+    bool hasReachedDestination = false;
 
     public void OnEnterDanger()
     {
@@ -86,7 +86,6 @@ public class KidMovementScript : MonoBehaviour
 
     void CreateTheBallAndThrow()
     {
-        //Called when the throw animation reaches a specific frame
         GameObject projectile = poolerScript.SpawnFromPool(OPTag.ENEMYBULLET, snowSpawn.position, Quaternion.identity);
         projectile.GetComponent<Rigidbody>().isKinematic = false;
         Vector3 randomInaccuracy = new(Random.Range(-sO.MaxInaccuracy, sO.MaxInaccuracy), Random.Range(-sO.MaxInaccuracy, sO.MaxInaccuracy), 0);
@@ -95,8 +94,6 @@ public class KidMovementScript : MonoBehaviour
         
         projectile.GetComponent<Rigidbody>().AddForce(sO.Force * throwDirection.normalized, ForceMode.Impulse);
 
-        //Destroy(projectile, 3f);
-        //cycleThrowCount++;
     }
 
     private void HandleLinkEnd()

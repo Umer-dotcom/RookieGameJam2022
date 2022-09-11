@@ -48,7 +48,6 @@ public class Bullets : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag);
 
         meshRenderer.enabled = false;
         rb.velocity = Vector3.zero;

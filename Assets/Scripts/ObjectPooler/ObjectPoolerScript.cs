@@ -32,7 +32,16 @@ public class ObjectPoolerScript : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance != null && Instance != this) {
+            Destroy(this.gameObject);
+        
+        
+        }
+        else { 
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        
+        }
     }
     #endregion
 
@@ -41,7 +50,6 @@ public class ObjectPoolerScript : MonoBehaviour
     public Dictionary<OPTag, Queue<GameObject>> poolDictionary;
     public GameObject objectContainer;
 
-    
     void Start()
     {
         poolDictionary = new Dictionary<OPTag, Queue<GameObject>>();

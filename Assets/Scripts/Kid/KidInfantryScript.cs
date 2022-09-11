@@ -23,8 +23,6 @@ public class KidInfantryScript : Kid
     BlendShapeController blendShapeController;
     KidMovementScript kidMovementScript;
 
-    int cycleThrowCount = 0;
-
     int state1;
     int state2;
     int state3;

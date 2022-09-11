@@ -59,19 +59,22 @@ public class KidSpawnerScript : MonoBehaviour
             SpawnKid();
             lastKidSpawn = 0;
         }
-        
-
+       
 
     }
     void SpawnKid()
     {
-        OPTag[] kidObjectTags = new[] { OPTag.KID, OPTag.KID2 };
         
 
-        GameObject kidSpawned = poolerScript.SpawnFromPool(kidObjectTags[Random.Range(0, kidObjectTags.Length)], transform.position, Quaternion.identity);
+        GameObject kidSpawned = poolerScript.SpawnFromPool(OPTag.KID, transform.position, Quaternion.identity);
         KidMovementScript kidScript = kidSpawned.GetComponentInChildren<KidMovementScript>();
-        
-        if (kidScript == null) return;
+
+        if (kidScript == null) 
+        {
+            Debug.Log("KidScript not found.");
+            
+            return; 
+        }
         
         kidsList.Add(kidScript);
         kidScript.SetTarget(startPoint.position);

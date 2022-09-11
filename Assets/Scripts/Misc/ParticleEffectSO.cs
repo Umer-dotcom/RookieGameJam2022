@@ -9,7 +9,6 @@ public class ParticleEffectSO : DescriptionBaseSO
     public float duration = 2f;
     public GameObject GetEffect()
     {
-        Debug.Log(emojis.Count);
         return emojis[Random.Range(0, emojis.Count)];
     }
 }

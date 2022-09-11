@@ -95,7 +95,6 @@ public class PlayerScript : MonoBehaviour
         //Debug.Log("Player hit.");
         if (other.gameObject.CompareTag("EnemyBullet"))
         {
-            Debug.Log("Player hit.");
             CinemachineShake.INSTANCE.ShakeCamera(5f, 0.1f);
             hitCount++;
             if (hitCount >= hitsToKill)
