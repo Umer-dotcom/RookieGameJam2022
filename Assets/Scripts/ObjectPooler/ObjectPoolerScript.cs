@@ -39,7 +39,7 @@ public class ObjectPoolerScript : MonoBehaviour
         }
         else { 
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         
         }
     }

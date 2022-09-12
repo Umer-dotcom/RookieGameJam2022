@@ -7,6 +7,7 @@ public class Bullets : MonoBehaviour
     
     private const string kidTag = "Kid";
     private const string headTag = "Head";
+    private const string enemyBullet = "EnemyBullet";
     ObjectPoolerScript poolerScript;
     private MeshRenderer meshRenderer;
     private Collider mainColider;
@@ -16,7 +17,7 @@ public class Bullets : MonoBehaviour
 
     private void Awake()
     {
-        poolerScript = ObjectPoolerScript.Instance;
+        
         meshRenderer = GetComponent<MeshRenderer>();
         mainColider = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
@@ -42,8 +43,8 @@ public class Bullets : MonoBehaviour
     }
     private void Start()
     {
-        
-        
+        poolerScript = ObjectPoolerScript.Instance;
+
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -55,7 +56,8 @@ public class Bullets : MonoBehaviour
 
         poolerScript.SpawnFromPool(OPTag.SNOWEFFECT, transform.position, Quaternion.identity);
 
-        if (collision.gameObject.CompareTag(kidTag))
+
+        if (!gameObject.CompareTag(enemyBullet) && collision.gameObject.CompareTag(kidTag))
         {
             HitEvent?.Invoke(1);
             Kid kidScript = collision.gameObject.GetComponent<Kid>();
@@ -65,7 +67,7 @@ public class Bullets : MonoBehaviour
                 poolerScript.SpawnFromPool(OPTag.HIT, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
                 
             }
-        } else if (collision.gameObject.CompareTag(headTag))
+        } else if (!gameObject.CompareTag(enemyBullet) && collision.gameObject.CompareTag(headTag))
         {
             HitEvent?.Invoke(3);
             poolerScript.SpawnFromPool(OPTag.CRIT, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);

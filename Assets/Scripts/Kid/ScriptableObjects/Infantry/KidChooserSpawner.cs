@@ -24,7 +24,7 @@ public class KidChooserSpawner : MonoBehaviour, IPooledObject
     {
         chosenKid = kidChooser.GetKid();
         instantiatedObject = Instantiate(chosenKid, transform.position, Quaternion.identity);
-        instantiatedObject.transform.parent = transform;
+        instantiatedObject.transform.parent = this.transform;
         //StartCoroutine(FadeOutEffect());
     }
     IEnumerator FadeOutEffect()

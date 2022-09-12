@@ -45,14 +45,14 @@ public class KidInfantryScript : Kid
         //poolerScript = ObjectPoolerScript.Instance;
         kidMovementScript = GetComponent<KidMovementScript>();
         ragdollEnabler = GetComponent<RagdollEnabler>();
-        poolerScript = ObjectPoolerScript.Instance;
+        
     }
 
     protected new void Start()
     {
         
         base.Start();
-        
+        poolerScript = ObjectPoolerScript.Instance;
         kidInfantryID = kidInfantryCount;
         kidInfantryCount++;
         blendShapeController = GetComponentInChildren<BlendShapeController>();

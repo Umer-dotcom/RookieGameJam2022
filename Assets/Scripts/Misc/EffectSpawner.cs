@@ -24,6 +24,7 @@ public class EffectSpawner : MonoBehaviour, IPooledObject
     {
         chosenEffect = effectSO.GetEffect();
         instantiatedObject = Instantiate(chosenEffect, transform.position, Quaternion.identity);
+        instantiatedObject.transform.parent = this.transform;
         //StartCoroutine(FadeOutEffect());
     }
     IEnumerator FadeOutEffect()

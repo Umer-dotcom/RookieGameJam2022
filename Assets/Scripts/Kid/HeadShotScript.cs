@@ -21,7 +21,7 @@ public class HeadShotScript : MonoBehaviour
         {
             //OnHeadShot(gameObject.GetComponent<Kid>().GetKidID(), collision);
             
-            if (kidInfantryScript.GetHitCount() >= kidInfantryScript.GetHitsToKill())
+            if (kidInfantryScript.GetHitCount() >= kidInfantryScript.GetHitsToKill() - 3)
             {
                 Collider headCollider = GetComponent<Collider>();
                 headCollider.enabled = false;

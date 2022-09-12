@@ -52,17 +52,19 @@ public class ProjectileShooter : MonoBehaviour
         else
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
             gunRB = GetComponent<Rigidbody>();
-            poolerScript = ObjectPoolerScript.Instance;
+            
 
-            gunRB.isKinematic = true;
+            
         }
             //Destroy(this);
     }
 
     private void Start()
     {
+        gunRB.isKinematic = true;
+        poolerScript = ObjectPoolerScript.Instance;
         if (virtualCamera != null) InitCameraPosition = virtualCamera.LookAt.position;
         
     }
