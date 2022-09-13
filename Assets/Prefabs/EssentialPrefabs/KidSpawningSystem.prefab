@@ -51,6 +51,7 @@ MonoBehaviour:
   destination: {fileID: 0}
   debugSphere: {fileID: 5603723568912948883, guid: eed8744b834fd0f4ca40e096d557a390,
     type: 3}
+  objectContainer: {fileID: 0}
 --- !u!1 &7136633872636386072
 GameObject:
   m_ObjectHideFlags: 0

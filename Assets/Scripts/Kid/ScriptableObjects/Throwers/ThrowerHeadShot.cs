@@ -20,7 +20,7 @@ public class ThrowerHeadShot : MonoBehaviour
         {
             //OnHeadShot(gameObject.GetComponent<Kid>().GetKidID(), collision);
             
-            if (kidThrowerScript.GetHitCount() >= kidThrowerScript.GetHitsToKill())
+            if (kidThrowerScript.GetHitCount() >= kidThrowerScript.GetHitsToKill() - 3)
             {
                 Collider headCollider = GetComponent<Collider>();
                 headCollider.enabled = false;
