@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public static SceneController instance;
+
     [SerializeField]
     private Scene[] scenes;
     [SerializeField]
@@ -17,6 +19,13 @@ public class SceneController : MonoBehaviour
 
     private void Awake()
     {
+        // Creating instance
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+
+        // Storing all scenes in an array
         totalScenesCount = SceneManager.sceneCountInBuildSettings - 1;
         scenes = new Scene[totalScenesCount];
         
