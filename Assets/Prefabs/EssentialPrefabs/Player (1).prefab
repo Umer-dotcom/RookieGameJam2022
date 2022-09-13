@@ -15116,12 +15116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 925824731054661515}
   virtualCamera: {fileID: 0}
-  projectiles:
-  - {fileID: 8840335113877959998, guid: 018df4c56ec60744eb40dc49c212af29, type: 3}
-  projectilesContainer: {fileID: 0}
   spawnPos: {fileID: 925824731605335732}
   shootForce: 50
-  gunHeat: 0
   shootSpeedMultiplier: 1
   MuzzleFlash: {fileID: 925824731685656408}
 --- !u!54 &925824731956144252
@@ -15944,15 +15940,15 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7014100223989787835, guid: 86cb1f35ce9d581449d8de27c5f97b70, type: 3}
-  - {fileID: -6615102496292152395, guid: 86cb1f35ce9d581449d8de27c5f97b70, type: 3}
-  - {fileID: -9155044881406231723, guid: 86cb1f35ce9d581449d8de27c5f97b70, type: 3}
-  - {fileID: 4835078630258379571, guid: 86cb1f35ce9d581449d8de27c5f97b70, type: 3}
-  - {fileID: -5839925859908928012, guid: 86cb1f35ce9d581449d8de27c5f97b70, type: 3}
-  - {fileID: -5216383231946537012, guid: 86cb1f35ce9d581449d8de27c5f97b70, type: 3}
-  - {fileID: -5533278992255929696, guid: 86cb1f35ce9d581449d8de27c5f97b70, type: 3}
-  - {fileID: -7259836403613845774, guid: 86cb1f35ce9d581449d8de27c5f97b70, type: 3}
-  - {fileID: 6098924145076851180, guid: 86cb1f35ce9d581449d8de27c5f97b70, type: 3}
+  - {fileID: 2100000, guid: 3344887b1d68edb479415995d4f89ff5, type: 2}
+  - {fileID: 2100000, guid: 80577902e15235249adb6245a2f4e27d, type: 2}
+  - {fileID: 2100000, guid: 964cebd9139b4c54f8b91c69f19c0e5c, type: 2}
+  - {fileID: 2100000, guid: 5513b56ac10db774eaff6e5b50939acd, type: 2}
+  - {fileID: 2100000, guid: 8418fdd44a2d21f46898f3b3f0e5dab2, type: 2}
+  - {fileID: 2100000, guid: bf03bea9f6415a24dbe6a7441ff6561b, type: 2}
+  - {fileID: 2100000, guid: fa85ae8a7f9ec34488e6f1750a5f5194, type: 2}
+  - {fileID: 2100000, guid: 067948ae0c855b24789d948a06683c3b, type: 2}
+  - {fileID: 2100000, guid: ef976afa666d4264399364256d3dd031, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
