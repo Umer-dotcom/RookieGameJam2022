@@ -17,11 +17,12 @@ public class EffectSpawner : MonoBehaviour, IPooledObject
  
     private void OnDisable()
     {
-        Destroy(instantiatedObject);
+        if (instantiatedObject != null) Destroy(instantiatedObject);
     }
 
     void IPooledObject.OnObjectSpawn()
     {
+        if (instantiatedObject != null) Destroy(instantiatedObject);
         chosenEffect = effectSO.GetEffect();
         instantiatedObject = Instantiate(chosenEffect, transform.position, Quaternion.identity);
         instantiatedObject.transform.parent = this.transform;

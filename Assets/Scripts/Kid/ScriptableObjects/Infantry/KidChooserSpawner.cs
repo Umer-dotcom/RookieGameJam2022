@@ -17,11 +17,12 @@ public class KidChooserSpawner : MonoBehaviour, IPooledObject
 
     private void OnDisable()
     {
-        Destroy(instantiatedObject);
+        if (instantiatedObject != null) Destroy(instantiatedObject);
     }
 
     void IPooledObject.OnObjectSpawn()
     {
+        if (instantiatedObject != null) Destroy(instantiatedObject); 
         chosenKid = kidChooser.GetKid();
         instantiatedObject = Instantiate(chosenKid, transform.position, Quaternion.identity);
         instantiatedObject.transform.parent = this.transform;
