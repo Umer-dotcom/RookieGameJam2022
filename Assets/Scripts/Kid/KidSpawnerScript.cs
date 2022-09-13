@@ -9,7 +9,7 @@ public class KidSpawnerScript : MonoBehaviour
     public Transform startPoint;
     public Transform destination;
     public GameObject debugSphere;
-    
+    public Transform objectContainer;
 
     private ObjectPoolerScript poolerScript;
     private Vector3[,] wayPointMatrix = new Vector3[4, 4];
@@ -27,7 +27,8 @@ public class KidSpawnerScript : MonoBehaviour
     }
     void Start()
     {
-        Instantiate(debugSphere, startPoint.position, Quaternion.identity);
+        GameObject sphere = Instantiate(debugSphere, startPoint.position, Quaternion.identity);
+        sphere.transform.parent = objectContainer;
         poolerScript = ObjectPoolerScript.Instance;
         Vector3 directionVector = destination.position - startPoint.position;
         float distanceBWVectors = Vector3.Distance(destination.position, startPoint.position);

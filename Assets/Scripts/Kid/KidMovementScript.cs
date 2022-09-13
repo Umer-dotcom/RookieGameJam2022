@@ -20,7 +20,7 @@ public class KidMovementScript : MonoBehaviour
     public Vector3 target;
 
     private Animator Animator;
-    public float UpdateRate = 0.1f;
+    public float UpdateRate = 0.25f;
     private NavMeshAgent Agent;
     private AgentLinkMover LinkMover;
 
