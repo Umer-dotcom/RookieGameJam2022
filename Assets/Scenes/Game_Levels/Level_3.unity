@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -926,7 +926,7 @@ PrefabInstance:
     - target: {fileID: 4631227425451868572, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8, type: 3}
@@ -1105,7 +1105,7 @@ PrefabInstance:
     - target: {fileID: 6600428396524544715, guid: 02811c125164d7a42b19baa509991112,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6600428396524544717, guid: 02811c125164d7a42b19baa509991112,
         type: 3}
@@ -3303,6 +3303,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ComboSystemCnvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900701268174955593, guid: 6a4edbdcbf179d04882ab352c2b636f0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a4edbdcbf179d04882ab352c2b636f0, type: 3}
