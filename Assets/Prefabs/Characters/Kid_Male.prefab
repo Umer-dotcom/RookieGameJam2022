@@ -910,8 +910,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitsToKill: 10
-  sO: {fileID: 11400000, guid: 3f1bf9d9801d9f647874d111b65daf60, type: 2}
-  snowSpawn: {fileID: 8172903142155925999}
 --- !u!195 &1766211571132587874
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1689,12 +1687,12 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -414921334540547795, guid: d36c1249aea26be4cb573d18199ce4c7, type: 3}
-  - {fileID: -7256372768549644637, guid: d36c1249aea26be4cb573d18199ce4c7, type: 3}
-  - {fileID: 4835078630258379571, guid: d36c1249aea26be4cb573d18199ce4c7, type: 3}
-  - {fileID: 4217796364934669478, guid: d36c1249aea26be4cb573d18199ce4c7, type: 3}
-  - {fileID: -4288583467269203127, guid: d36c1249aea26be4cb573d18199ce4c7, type: 3}
-  - {fileID: -1026805392368485035, guid: d36c1249aea26be4cb573d18199ce4c7, type: 3}
+  - {fileID: 2100000, guid: d99ddd271d4e509489e749580dc4b2e6, type: 2}
+  - {fileID: 2100000, guid: eb218abb8049d974cabc6a2c3d66acaf, type: 2}
+  - {fileID: 2100000, guid: 9706621905aeb044989d4229543cbfdc, type: 2}
+  - {fileID: 2100000, guid: 8b787f77049045f479831d5975fb1ba5, type: 2}
+  - {fileID: 2100000, guid: 355e846bb601bf44c9c871c67849645b, type: 2}
+  - {fileID: 2100000, guid: 433ed83adfc0c7940b7824b4b3b561fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -767,12 +767,12 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -414921334540547795, guid: 727be1d8816cddf4f9040009108ec582, type: 3}
-  - {fileID: -7256372768549644637, guid: 727be1d8816cddf4f9040009108ec582, type: 3}
-  - {fileID: 4835078630258379571, guid: 727be1d8816cddf4f9040009108ec582, type: 3}
-  - {fileID: 4217796364934669478, guid: 727be1d8816cddf4f9040009108ec582, type: 3}
-  - {fileID: -4288583467269203127, guid: 727be1d8816cddf4f9040009108ec582, type: 3}
-  - {fileID: -1026805392368485035, guid: 727be1d8816cddf4f9040009108ec582, type: 3}
+  - {fileID: 2100000, guid: d99ddd271d4e509489e749580dc4b2e6, type: 2}
+  - {fileID: 2100000, guid: eb218abb8049d974cabc6a2c3d66acaf, type: 2}
+  - {fileID: 2100000, guid: 9706621905aeb044989d4229543cbfdc, type: 2}
+  - {fileID: 2100000, guid: 8b787f77049045f479831d5975fb1ba5, type: 2}
+  - {fileID: 2100000, guid: 355e846bb601bf44c9c871c67849645b, type: 2}
+  - {fileID: 2100000, guid: 433ed83adfc0c7940b7824b4b3b561fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1680,8 +1680,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c0f16073c7e7a241a2ef32580c3d7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Animator: {fileID: 0}
+  initSpeed: 0
+  maxSpeed: 0
+  sO: {fileID: 0}
+  snowSpawn: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
   UpdateRate: 0.1
 --- !u!1 &7839914882268744508
 GameObject:
