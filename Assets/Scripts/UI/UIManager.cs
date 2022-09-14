@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Slider gameplaySlider;
     [SerializeField]
+    private int sliderEffectValue = 1;
+    [SerializeField]
     private GameplayUIController gameplayUIController;
 
     [Header("CharacterUnlockUI")]
@@ -60,12 +62,12 @@ public class UIManager : MonoBehaviour
     private GameObject aboutUsScreen;
 
     [Header("For Testing Purpose")]
-    [SerializeField] private bool inc;
+    [SerializeField] public bool inc;
     [SerializeField] private bool dec;
     [SerializeField] private bool unlockChar;
-    [SerializeField] private bool winFadeIN;
+    [SerializeField] public bool winFadeIN;
     [SerializeField] private bool winFadeOUT;
-    [SerializeField] private bool loseFadeIN;
+    [SerializeField] public bool loseFadeIN;
     [SerializeField] private bool loseFadeOUT;
     [SerializeField] private bool unlockCharScreenFadeIn;
     [SerializeField] private bool unlockCharScreenFadeOut;
@@ -138,7 +140,7 @@ public class UIManager : MonoBehaviour
         charUnlockRectTransform.transform.DOScale(Vector3.zero, fadeTime).SetEase(Ease.InElastic);
     }
     
-    private void WinPanelFadeIn()
+    public void WinPanelFadeIn()
     {
         FadeIn(winRectTransform);
         StartCoroutine("WinningStarsOut");
@@ -149,7 +151,7 @@ public class UIManager : MonoBehaviour
         FadeOut(winRectTransform);
     }
 
-    private void LosePanelFadeIn()
+    public void LosePanelFadeIn()
     {
         FadeIn(loseRectTransform);
     }
@@ -185,13 +187,14 @@ public class UIManager : MonoBehaviour
 
     private void GameplayIncrementSlider()
     {
-        gameplaySlider.value = Mathf.Clamp(gameplaySlider.value + 1, gameplaySlider.minValue, gameplaySlider.maxValue);
+        Debug.Log("Incrementing slider!");
+        gameplaySlider.value = Mathf.Clamp(gameplaySlider.value + sliderEffectValue, gameplaySlider.minValue, gameplaySlider.maxValue);
         gameplayUIController.scoreIncrement((int)gameplaySlider.value);
     }
 
     private void GameplayDecrementSlider()
     {
-        gameplaySlider.value = Mathf.Clamp(gameplaySlider.value - 1, gameplaySlider.minValue, gameplaySlider.maxValue);
+        gameplaySlider.value = Mathf.Clamp(gameplaySlider.value - sliderEffectValue, gameplaySlider.minValue, gameplaySlider.maxValue);
         gameplayUIController.scoreDecrement((int)gameplaySlider.value);
     }
 
@@ -249,6 +252,11 @@ public class UIManager : MonoBehaviour
 
     IEnumerator WinningStarsOut()
     {
+        foreach (var s in stars)
+        {
+            s.transform.localScale = Vector3.zero;
+        }
+
         int counter = 0;
         if (gameplaySlider.value == 10)
             counter = 3;
@@ -257,10 +265,8 @@ public class UIManager : MonoBehaviour
         else if (gameplaySlider.value >= 5)
             counter = 1;
 
-        foreach(var s in stars)
-        {
-            s.transform.localScale = Vector3.zero;
-        }
+        Debug.Log("Counter = " + counter.ToString());
+
         for(int i = 0; i < counter; i++)
         {
             yield return new WaitForSeconds(0.25f);

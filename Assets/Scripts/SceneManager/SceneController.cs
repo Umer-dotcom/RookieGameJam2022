@@ -56,4 +56,18 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadSceneAsync(resumeFromLevel);   // Resume game from level where player left
         SceneManager.UnloadSceneAsync(0);   // Unload Start Screen
     }
+
+    public void SaveUnlockedLevel()
+    {
+        resumeFromLevel = SceneManager.GetActiveScene().buildIndex + 1;
+        resumeFromLevel = Mathf.Clamp(resumeFromLevel, 1, totalScenesCount);
+        PlayerPrefs.SetInt("ResumeGame", resumeFromLevel);
+        PlayerPrefs.SetInt("UnlockedLvls", resumeFromLevel);
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);   // Resume game from level where player left
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);   // Unload Start Screen
+    }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KidSpawnerScript : MonoBehaviour
 {
+    [SerializeField] private GameManager manager;
     public int maxKidCount;
     public float kidSpawnInterval;
     public Transform startPoint;
@@ -80,7 +81,8 @@ public class KidSpawnerScript : MonoBehaviour
         kidsList.Add(kidScript);
         kidScript.SetTarget(startPoint.position);
         spawnedKidCount++;
-        
+
+        manager.AddToList(kidSpawned.transform.GetChild(0).gameObject);
     }
     public void SetKidTarget(int ID)
     {

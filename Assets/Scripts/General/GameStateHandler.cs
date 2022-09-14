@@ -11,7 +11,7 @@ public class GameStateHandler : MonoBehaviour
 
     public float comboCooldown = 2f;
     private float comboTimeTracker = 0;
-    ComboCounter combo;
+    //ComboCounter combo;
     bool onACombo = false;
     private int score = 0;
 
@@ -21,7 +21,7 @@ public class GameStateHandler : MonoBehaviour
     {
         remainingInfantry = infantryTotal;
         remainingThrowers = throwerTotal;
-        combo = GetComponent<ComboCounter>();
+        //combo = GetComponent<ComboCounter>();
         score = 0;
         gameState = GameState.PRESTART;
         windowState = WindowState.RUNNING;
@@ -42,7 +42,7 @@ public class GameStateHandler : MonoBehaviour
     }
     void OnKidHit(int value)
     {
-        combo.Increment();
+        //combo.Increment();
         score += value * 10;
         onACombo = true;
     }
@@ -63,7 +63,7 @@ public class GameStateHandler : MonoBehaviour
 
         if (onACombo && comboTimeTracker >= comboCooldown)
         {
-            combo.Break();
+            //combo.Break();
             onACombo = false;
         }
     }
