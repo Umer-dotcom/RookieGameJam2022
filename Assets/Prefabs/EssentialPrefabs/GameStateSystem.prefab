@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1898235932438891024}
   - component: {fileID: 1898235932438891030}
-  - component: {fileID: 1898235932438891025}
   m_Layer: 0
   m_Name: GameStateSystem
   m_TagString: Untagged
@@ -45,25 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb60515d38167c54b9b9f852f08e0c86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infantryTotal: 0
-  throwerTotal: 0
+  infantryTotal: 50
+  throwerTotal: 1
   gameState: 0
   windowState: 0
   comboCooldown: 0
---- !u!114 &1898235932438891025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1898235932438891027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8872e24df1f924f48912de3e7ad6a544, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  comboGameObject: {fileID: 0}
-  tweenConfiguration: {fileID: 11400000, guid: 6192b12ecf5414e4c921f5c4ecc3fc40, type: 2}
-  textPopUpComponent: {fileID: 0}
-  preCounterFormat: 
-  postCounterFormat: HITS!
