@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeTime: 1
   gameplaySlider: {fileID: 0}
+  sliderEffectValue: 1
   gameplayUIController: {fileID: 0}
   charUnlockRectTransform: {fileID: 0}
   unlockSpeed: 20
@@ -57,6 +58,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  starsFadeTime: 1
   loseRectTransform: {fileID: 0}
   mainMenuRectTransform: {fileID: 0}
   volumeScreen: {fileID: 0}

@@ -8,6 +8,16 @@ public class VolumeController : MonoBehaviour
     [SerializeField]
     private Slider volSlider;
 
+    private void Start()
+    {
+        volSlider.value = AudioManager.instance.GetVolume("Theme");
+    }
+
+    private void Update()
+    {
+        UpdateVolume();
+    }
+
     public void UpdateVolume()
     {
         AudioManager.instance.ThemeVolumeAdjustment(volSlider.value);
