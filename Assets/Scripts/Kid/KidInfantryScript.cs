@@ -27,7 +27,7 @@ public class KidInfantryScript : Kid
     int state2;
     int state3;
 
-    float ragdollForce = 25f;
+    float ragdollForce = 50f;
     private void OnEnable()
     {
         //HeadShotScript.OnHeadShot += HeadShot;
@@ -121,7 +121,7 @@ public class KidInfantryScript : Kid
         if (hitCount >= hitsToKill)
         {
 
-            ragdollForce = 50f;
+            ragdollForce = 100f;
             kidActive = false;
             Rigidbody[] rigidbodies = ragdollEnabler.EnableRagdoll();
             Vector3 forceDirection = -(collision.contacts[0].point - transform.position).normalized;

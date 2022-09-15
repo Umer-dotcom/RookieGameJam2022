@@ -16,3 +16,6 @@ MonoBehaviour:
   description: 
   emojis:
   - {fileID: 1883610838541854, guid: aa72280b4bb67cb468b0ffc37bcfc9c0, type: 3}
+  - {fileID: 189656, guid: 30a1ca85182ce3e439e8d6cb843ab9ad, type: 3}
+  - {fileID: 1738556233115542, guid: 59fb96e360dbd3f4ebf27302f3312d6d, type: 3}
+  duration: 2

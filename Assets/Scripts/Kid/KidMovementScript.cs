@@ -70,6 +70,9 @@ public class KidMovementScript : MonoBehaviour
         StartCoroutine(FollowTarget());
         Agent.speed = initSpeed;
         speedIncrement = (maxSpeed - initSpeed) / 3;
+
+        Debug.Log(Agent.velocity.magnitude);
+        Animator.SetFloat("runSpeed", Agent.velocity.magnitude / Agent.speed);
     }
 
     private void HandleLinkStart()
@@ -81,6 +84,7 @@ public class KidMovementScript : MonoBehaviour
         if (Agent.speed < maxSpeed)
         {
             Agent.speed += speedIncrement;
+            Animator.SetFloat("runSpeed", Agent.velocity.magnitude / Agent.speed);
         }
     }
 
