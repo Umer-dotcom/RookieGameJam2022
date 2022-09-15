@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelSelectUIController : MonoBehaviour
 {
@@ -23,13 +24,14 @@ public class LevelSelectUIController : MonoBehaviour
         {
             unlockedLevelsCount = PlayerPrefs.GetInt("UnlockedLvls");
         }
-
+        // Locking the levels
         for(int i = 1; i < levels.Count; i++)
         {
+            levels[i].GetComponent<Button>().enabled = false;
             levels[i].transform.GetChild(0).gameObject.SetActive(true);
             levels[i].transform.GetChild(0).transform.DOScale(Vector3.zero, fadeTime).SetEase(Ease.InElastic);
         }
-
+        // Unlocking the levels
         for (int i = 2; i <= unlockedLevelsCount; i++)
         {
             UnlockLevel(i);
@@ -57,6 +59,8 @@ public class LevelSelectUIController : MonoBehaviour
 
     IEnumerator Unlocker(int lvl_no)
     {
+        // Making Button Clicker Enabled
+        levels[lvl_no - 1].GetComponent<Button>().enabled = true;
         // Fade Out the lock
         levels[lvl_no - 1].transform.GetChild(1).transform.DOScale(Vector3.zero, fadeTime).SetEase(Ease.InElastic);
         yield return new WaitForSeconds(1f);

@@ -57,6 +57,12 @@ public class SceneController : MonoBehaviour
         SceneManager.UnloadSceneAsync(0);   // Unload Start Screen
     }
 
+    public void PlayLevel(int level_index)
+    {
+        SceneManager.LoadSceneAsync(level_index);   // Resume game from level where player left
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);   // Unload Current Scene
+    }
+
     public void SaveUnlockedLevel()
     {
         resumeFromLevel = SceneManager.GetActiveScene().buildIndex + 1;

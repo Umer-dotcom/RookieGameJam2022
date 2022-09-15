@@ -36,6 +36,8 @@ public class UIManager : MonoBehaviour
     private RectTransform winRectTransform;
     [SerializeField]
     private List<GameObject> stars = new List<GameObject>();
+    [SerializeField]
+    private float starsFadeTime = 2f;
 
     [Header("LoseScreen")]
     [SerializeField]
@@ -164,7 +166,7 @@ public class UIManager : MonoBehaviour
     private void FadeIn(RectTransform rectTransform)
     {
         rectTransform.transform.localPosition = new Vector3(0f, -1500f, 0f);
-        rectTransform.DOAnchorPos(new Vector2(0f, 0f), fadeTime, false).SetEase(Ease.OutElastic);
+        rectTransform.DOAnchorPos(new Vector2(0f, 0f), fadeTime, false).SetEase(Ease.OutQuint);
     }
 
     private void FadeOut(RectTransform rectTransform)
@@ -269,8 +271,8 @@ public class UIManager : MonoBehaviour
 
         for(int i = 0; i < counter; i++)
         {
-            yield return new WaitForSeconds(0.25f);
-            stars[i].transform.DOScale(1f, fadeTime).SetEase(Ease.OutBounce);
+            yield return new WaitForSeconds(0.5f);
+            stars[i].transform.DOScale(1f, starsFadeTime).SetEase(Ease.OutElastic);
         }
     }
 }

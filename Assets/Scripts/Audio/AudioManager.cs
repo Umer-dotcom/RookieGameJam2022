@@ -42,4 +42,12 @@ public class AudioManager : MonoBehaviour
             return;
         s.source.Play();
     }
+
+    public void ThemeVolumeAdjustment(float value)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == "Theme");
+        if (s == null)
+            return;
+        s.volume = value;
+    }
 }
