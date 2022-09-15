@@ -5,42 +5,60 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject _player;
+    [SerializeField]
     private UIManager _UIManager;
     [SerializeField]
     private KidSpawnerScript kidSpawnerScript;
     [SerializeField]
     private GameObject[] disableThese;
     [SerializeField]
-    private List<GameObject> kids2;
+    private List<GameObject> _kidsList;
     [SerializeField]
     private int totalKids = 0;
     [SerializeField]
     private int shooterKids = 0;
+
     [Header("For Testing Purpose")]
     [SerializeField]
     private bool letsEnd = false;
     [SerializeField]
     private bool allDead = false;
+    [SerializeField]
+    private bool isPlayerDead = false;
     [SerializeField] 
     int removedKiddos = 0;
 
     private void Start()
     {
         letsEnd = true;
-        totalKids = kidSpawnerScript.maxKidCount + shooterKids;
+
+        GameObject[] spawnSystems = GameObject.FindGameObjectsWithTag("spawnsystem");
+        foreach (GameObject spawnSystem in spawnSystems)
+        {
+            totalKids += spawnSystem.GetComponent<KidSpawnerScript>().maxKidCount;
+        }
+
+        totalKids += shooterKids;
     }
 
     private void Update()
     {
+        if (_player.GetComponent<Collider>().enabled == false && isPlayerDead == false)
+        {
+            isPlayerDead = true;
+            YouLose();
+        }
+
         if(letsEnd)
         {
-            for(int i = 0; i < kids2.Count; i++)
+            for(int i = 0; i < _kidsList.Count; i++)
             {
-                if (kids2[i].GetComponent<Collider>().enabled == false)
+                if (_kidsList[i].GetComponent<Collider>().enabled == false)
                 {
                     removedKiddos++;
                     _UIManager.inc = true;
-                    kids2.Remove(kids2[i]);
+                    _kidsList.Remove(_kidsList[i]);
                 }
             }
             
@@ -65,8 +83,7 @@ public class GameManager : MonoBehaviour
 
     private void YouLose()
     {
-        StopTheGameplay();
-        _UIManager.loseFadeIN = true;
+        StartCoroutine(LoseSetup());
     }
 
     private void StopTheGameplay()
@@ -86,12 +103,19 @@ public class GameManager : MonoBehaviour
 
     public void AddToList(GameObject kiddo)
     {
-        kids2.Add(kiddo);
+        _kidsList.Add(kiddo);
     }
 
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(1f);
         allDead = true;
+    }
+
+    IEnumerator LoseSetup()
+    {
+        yield return new WaitForSeconds(1.5f);
+        StopTheGameplay();
+        _UIManager.LosePanelFadeIn();
     }
 }

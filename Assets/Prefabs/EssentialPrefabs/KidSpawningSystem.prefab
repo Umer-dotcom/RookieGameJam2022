@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4631227425451868562}
   m_Layer: 0
   m_Name: KidSpawningSystem
-  m_TagString: Untagged
+  m_TagString: spawnsystem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  maxKidCount: 10
+  maxKidCount: 5
   kidSpawnInterval: 3
   startPoint: {fileID: 7136633872636386073}
   destination: {fileID: 0}

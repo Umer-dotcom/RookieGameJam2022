@@ -10,6 +10,7 @@ TagManager:
   - EnemyBullet
   - Head
   - LoseArea
+  - spawnsystem
   layers:
   - Default
   - TransparentFX
