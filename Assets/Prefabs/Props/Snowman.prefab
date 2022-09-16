@@ -11,15 +11,13 @@ GameObject:
   - component: {fileID: 2932103049281449484}
   - component: {fileID: 2242572323398721961}
   - component: {fileID: 4106087607629075811}
-  - component: {fileID: 418864860}
-  - component: {fileID: 418864864}
-  - component: {fileID: 418864859}
+  - component: {fileID: 3179009423518756369}
   m_Layer: 0
   m_Name: Snowman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2932103049281449484
 Transform:
@@ -88,24 +86,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &418864860
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2592732653945025718}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!65 &418864864
-BoxCollider:
+--- !u!64 &3179009423518756369
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -114,25 +96,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.9999998, y: 3.9933543, z: 1.677009}
-  m_Center: {x: -0.00000023841856, y: 1.9966772, z: 0.008087516}
---- !u!114 &418864859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2592732653945025718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 770f5727464429b4ea780d55031d458c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionEffect: {fileID: 0}
-  radius: 10
-  force: 1000
-  totalHits: 5
-  boom: 0
-  hasExploded: 0
-  currentHits: 0
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3389646231621714367, guid: 230a74f1286aca64ea1a5db43d173cf1, type: 3}
