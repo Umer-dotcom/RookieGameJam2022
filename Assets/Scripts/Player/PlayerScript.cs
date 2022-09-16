@@ -16,10 +16,8 @@ public class PlayerScript : MonoBehaviour
     private bool playerActive = true;
     protected ProjectileShooter gun;
     CapsuleCollider mainCol;
-    //Transform ragdollRoot;
     Rigidbody[] rigidbodies;
     Joint[] joints;
-    Collider[] ragdollColliders;
     bool StartRagdoll = false;
     //RagdollEnabler ragdollEnabler;
     CinemachineShake cinemachineShake;
@@ -31,7 +29,6 @@ public class PlayerScript : MonoBehaviour
         mainCol = GetComponent<CapsuleCollider>();
         gun = GetComponentInChildren<ProjectileShooter>();
         animator = GetComponent<Animator>();
-        ragdollColliders = RagdollRoot.GetComponentsInChildren<Collider>();
         gun.SetAnimator(animator);
         gun.SetCollider(mainCol);
         cinemachineShake = CinemachineShake.INSTANCE;
@@ -48,7 +45,7 @@ public class PlayerScript : MonoBehaviour
             EnableAnimator();
         }
 
-        //mainCol.enabled = true;
+        mainCol.enabled = true;
     }
 
     public void EnableRagdoll()
@@ -66,11 +63,6 @@ public class PlayerScript : MonoBehaviour
             rigidbody.useGravity = true;
             rigidbody.isKinematic = false;
         }
-        foreach(Collider collider in ragdollColliders)
-        {
-            collider.enabled = true;
-        }
-        mainCol.enabled = false;
     }
 
     public void DisableAllRigidbodies()
@@ -96,12 +88,6 @@ public class PlayerScript : MonoBehaviour
             rigidbody.useGravity = false;
             rigidbody.isKinematic = true;
         }
-        foreach (Collider collider in ragdollColliders)
-        {
-            collider.enabled = false;
-        }
-
-        mainCol.enabled = true;
     }
 
     protected void OnTriggerEnter(Collider other)    
@@ -126,9 +112,9 @@ public class PlayerScript : MonoBehaviour
                     rb.AddForce(forceDirection * 10f, ForceMode.Impulse);
                 }
                 Time.timeScale = 0.5f;
-                //Collider mainCollider = GetComponent<Collider>();
+                Collider mainCollider = GetComponent<Collider>();
                 
-                //mainCollider.enabled = false;
+                mainCollider.enabled = false;
                 StartCoroutine(TurnKidsOffDelay(3f));
             }
         }
