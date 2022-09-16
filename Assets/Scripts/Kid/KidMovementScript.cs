@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,14 +14,16 @@ public class KidMovementScript : MonoBehaviour
     
 
     ObjectPoolerScript poolerScript;
-    
-    
-    
+
+
+    public static event Action<int> TargetNotFound = delegate { };
+    private float targetFoundTracker = 0;
+    private float targetNotFoundTime = 2f; 
     private float speedIncrement;
     public Vector3 target;
 
     private Animator Animator;
-    public float UpdateRate = 0.25f;
+    public float UpdateRate = 0.1f;
     private NavMeshAgent Agent;
     private AgentLinkMover LinkMover;
 
@@ -35,6 +38,12 @@ public class KidMovementScript : MonoBehaviour
     private bool kidActive = true;
     private bool hasReachedTarget = false;
     bool hasReachedDestination = false;
+
+    public Vector3 finalTarget;
+    public void SetFinalTarget(Vector3 finalTarget)
+    {
+        this.finalTarget = finalTarget;
+    }
 
     public void OnEnterDanger()
     {
@@ -92,9 +101,9 @@ public class KidMovementScript : MonoBehaviour
     {
         GameObject projectile = poolerScript.SpawnFromPool(OPTag.ENEMYBULLET, snowSpawn.position, Quaternion.identity);
         projectile.GetComponent<Rigidbody>().isKinematic = false;
-        Vector3 randomInaccuracy = new(Random.Range(-sO.MaxInaccuracy, sO.MaxInaccuracy), Random.Range(-sO.MaxInaccuracy, sO.MaxInaccuracy), 0);
+        Vector3 randomInaccuracy = new(UnityEngine.Random.Range(-sO.MaxInaccuracy, sO.MaxInaccuracy), UnityEngine.Random.Range(-sO.MaxInaccuracy, sO.MaxInaccuracy), 0);
         //target.y += 1.5f;
-        Vector3 throwDirection = target - (snowSpawn.position + randomInaccuracy);
+        Vector3 throwDirection = finalTarget - (snowSpawn.position + randomInaccuracy);
         
         projectile.GetComponent<Rigidbody>().AddForce(sO.Force * throwDirection.normalized, ForceMode.Impulse);
 
@@ -107,7 +116,22 @@ public class KidMovementScript : MonoBehaviour
 
     private void Update()
     {
+        if (!Agent.enabled) return;
         Animator.SetBool(isRunning, Agent.velocity.magnitude > 0.01f);
+
+        if (Agent.velocity.magnitude < 0.01f)
+        {
+            targetFoundTracker += Time.deltaTime;
+        } else
+        {
+            targetFoundTracker = 0;
+        }
+        if (targetFoundTracker >= targetNotFoundTime)
+        {
+            TargetNotFound?.Invoke(GetID());
+            Debug.Log("target not found");
+
+        }
     }
 
     private IEnumerator FollowTarget()

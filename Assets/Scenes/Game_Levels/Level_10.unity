@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 0c7993d1ee27afc44a6acbd09b997a70, type: 2}
 --- !u!1001 &67169463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +134,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Half_Ice_Rock (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059154722863785338, guid: 8221bf595fd60ee4b92d31ba2ae44d84,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6871826394559381440, guid: 8221bf595fd60ee4b92d31ba2ae44d84,
         type: 3}
@@ -212,7 +217,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &160712462
 Transform:
@@ -244,6 +249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390989568728719354, guid: 7a96a6fd39bc6504da60877adb0d1f71,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9167385053828023616, guid: 7a96a6fd39bc6504da60877adb0d1f71,
         type: 3}
@@ -391,7 +401,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &488706380
 Transform:
@@ -424,7 +434,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &527668758
 Transform:
@@ -462,6 +472,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014437947682443791, guid: e21cc20c1e6ba324da4ec26d83650ba6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7643622912759531701, guid: e21cc20c1e6ba324da4ec26d83650ba6,
         type: 3}
@@ -537,6 +552,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390989568728719354, guid: 7a96a6fd39bc6504da60877adb0d1f71,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9167385053828023616, guid: 7a96a6fd39bc6504da60877adb0d1f71,
         type: 3}
@@ -615,7 +635,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &588029101
 Transform:
@@ -716,6 +736,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow_Plane
       objectReference: {fileID: 0}
+    - target: {fileID: 5787938860554335560, guid: 6be49d03d97e63945aa9944646a32fbd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6564334104936280050, guid: 6be49d03d97e63945aa9944646a32fbd,
         type: 3}
       propertyPath: m_RootOrder
@@ -786,6 +811,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1121085512, guid: 92d93b5f7a49dd34284d349a78c7dcef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121085515, guid: 92d93b5f7a49dd34284d349a78c7dcef, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089299640, guid: 92d93b5f7a49dd34284d349a78c7dcef, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089299643, guid: 92d93b5f7a49dd34284d349a78c7dcef, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 925824731054661511, guid: 92d93b5f7a49dd34284d349a78c7dcef,
         type: 3}
       propertyPath: m_RootOrder
@@ -991,6 +1032,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Half_Ice_Rock
       objectReference: {fileID: 0}
+    - target: {fileID: 6059154722863785338, guid: 8221bf595fd60ee4b92d31ba2ae44d84,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6871826394559381440, guid: 8221bf595fd60ee4b92d31ba2ae44d84,
         type: 3}
       propertyPath: m_RootOrder
@@ -1065,6 +1111,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow_Plane (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787938860554335560, guid: 6be49d03d97e63945aa9944646a32fbd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6564334104936280050, guid: 6be49d03d97e63945aa9944646a32fbd,
         type: 3}
@@ -1211,6 +1262,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ice_Rock (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1132234929012139182, guid: 447916f9c7e140c4aa4fa1f26f484425,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447916f9c7e140c4aa4fa1f26f484425, type: 3}
 --- !u!4 &1041721105 stripped
@@ -1304,6 +1360,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000901100419276517, guid: 487dd6bc74d78974ebdfe4d644c4ed69,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5633182496954352735, guid: 487dd6bc74d78974ebdfe4d644c4ed69,
         type: 3}
@@ -1519,6 +1580,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ice_Rock (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1132234929012139182, guid: 447916f9c7e140c4aa4fa1f26f484425,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447916f9c7e140c4aa4fa1f26f484425, type: 3}
 --- !u!4 &1296415189 stripped
@@ -1594,6 +1660,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7900355886855121303, guid: be1a219af294ce540a8084ed3ce180a7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be1a219af294ce540a8084ed3ce180a7, type: 3}
 --- !u!4 &1312024652 stripped
@@ -1613,6 +1684,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snow_Plane (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787938860554335560, guid: 6be49d03d97e63945aa9944646a32fbd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6564334104936280050, guid: 6be49d03d97e63945aa9944646a32fbd,
         type: 3}
@@ -1759,6 +1835,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ice_Rock (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1132234929012139182, guid: 447916f9c7e140c4aa4fa1f26f484425,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447916f9c7e140c4aa4fa1f26f484425, type: 3}
 --- !u!4 &1394172331 stripped
@@ -1781,7 +1862,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1471398983
 Transform:
@@ -1866,6 +1947,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_1
       objectReference: {fileID: 0}
+    - target: {fileID: 7900355886855121303, guid: be1a219af294ce540a8084ed3ce180a7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be1a219af294ce540a8084ed3ce180a7, type: 3}
 --- !u!4 &1494962012 stripped
@@ -1888,7 +1974,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1505356060
 Transform:
@@ -2125,6 +2211,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow_Plane (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5787938860554335560, guid: 6be49d03d97e63945aa9944646a32fbd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6564334104936280050, guid: 6be49d03d97e63945aa9944646a32fbd,
         type: 3}
       propertyPath: m_RootOrder
@@ -2324,6 +2415,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7900355886855121303, guid: be1a219af294ce540a8084ed3ce180a7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be1a219af294ce540a8084ed3ce180a7, type: 3}
 --- !u!4 &1880371807 stripped
@@ -2418,6 +2514,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8390989568728719354, guid: 7a96a6fd39bc6504da60877adb0d1f71,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 9167385053828023616, guid: 7a96a6fd39bc6504da60877adb0d1f71,
         type: 3}
       propertyPath: m_RootOrder
@@ -2493,6 +2594,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_3
       objectReference: {fileID: 0}
+    - target: {fileID: 5000901100419276517, guid: 487dd6bc74d78974ebdfe4d644c4ed69,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5633182496954352735, guid: 487dd6bc74d78974ebdfe4d644c4ed69,
         type: 3}
       propertyPath: m_RootOrder
@@ -2567,6 +2673,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7014437947682443791, guid: e21cc20c1e6ba324da4ec26d83650ba6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7643622912759531701, guid: e21cc20c1e6ba324da4ec26d83650ba6,
         type: 3}

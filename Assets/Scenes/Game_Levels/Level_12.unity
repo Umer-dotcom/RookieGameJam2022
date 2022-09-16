@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: c7f0de32ccbdbcb4197cd7df9850e1f3, type: 2}
 --- !u!1001 &228456638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -437,6 +437,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6040697393236982008, guid: ee8b6134c133cfb4c9bf8d379bf7bcb2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6040697394573200406, guid: ee8b6134c133cfb4c9bf8d379bf7bcb2,
         type: 3}
       propertyPath: m_Name
@@ -659,6 +664,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1121085515, guid: 92d93b5f7a49dd34284d349a78c7dcef, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089299643, guid: 92d93b5f7a49dd34284d349a78c7dcef, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 925824731054661511, guid: 92d93b5f7a49dd34284d349a78c7dcef,
         type: 3}
       propertyPath: m_RootOrder
@@ -1187,6 +1200,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1235549276097538319, guid: 09c92f50ee3de4a489551a1ac8627293,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5031669015789898471, guid: 09c92f50ee3de4a489551a1ac8627293,
         type: 3}
       propertyPath: m_IsActive
@@ -1247,6 +1265,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7448361601776066534, guid: 09c92f50ee3de4a489551a1ac8627293,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7678705877569216676, guid: 09c92f50ee3de4a489551a1ac8627293,
         type: 3}
       propertyPath: m_RootOrder
@@ -1306,6 +1329,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Office_Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678705877717478541, guid: 09c92f50ee3de4a489551a1ac8627293,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c92f50ee3de4a489551a1ac8627293, type: 3}

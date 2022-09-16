@@ -1089,7 +1089,7 @@ Transform:
   m_GameObject: {fileID: 4145077518638011500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.71716, y: 0.71716, z: 0.71716}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7975211315975402997}
@@ -1217,12 +1217,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c0f16073c7e7a241a2ef32580c3d7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initSpeed: 2
+  initSpeed: 4
   maxSpeed: 8
   sO: {fileID: 11400000, guid: 8c1b0b4f2dd15f143ab14d485deb44e9, type: 2}
   snowSpawn: {fileID: 8251158132567147981}
   target: {x: 0, y: 0, z: 0}
   UpdateRate: 0.1
+  finalTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &5540900046308275220
 MonoBehaviour:
   m_ObjectHideFlags: 0

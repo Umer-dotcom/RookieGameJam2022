@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WayPointScript : MonoBehaviour
 {
-    
+    public int waypointSourceID;
     public static event Action<int> _onWaypointEnter = delegate { };
     private void OnTriggerEnter(Collider other)
     {

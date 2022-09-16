@@ -5,6 +5,8 @@ using UnityEngine;
 public class KidSpawnerScript : MonoBehaviour
 {
     //[SerializeField] private GameManager manager;
+    //[SerializeField] float distanceFromPlayer = 15f;
+    public static int spawnerCount = 0;
     public int maxKidCount;
     public float kidSpawnInterval;
     public Transform startPoint;
@@ -18,16 +20,21 @@ public class KidSpawnerScript : MonoBehaviour
     private float lastKidSpawn = 0;
     private float spawnedKidCount = 0;
     private List<KidMovementScript> kidsList = new List<KidMovementScript>();
+
+
     private void OnEnable()
     {
         WayPointScript._onWaypointEnter += SetKidTarget;
+        KidMovementScript.TargetNotFound += SetKidTarget;
     }
     private void OnDisable()
     {
         WayPointScript._onWaypointEnter -= SetKidTarget;
+        KidMovementScript.TargetNotFound -= SetKidTarget;
     }
     void Start()
     {
+        spawnerCount++;
         GameObject sphere = Instantiate(debugSphere, startPoint.position, Quaternion.identity);
         sphere.transform.parent = objectContainer;
         poolerScript = ObjectPoolerScript.Instance;
@@ -43,7 +50,8 @@ public class KidSpawnerScript : MonoBehaviour
                 Vector3 pointOnRay = startToTargetRay.GetPoint(wayPointOffsetLength * i);
                 Vector3 wayPointPosition = new(pointOnRay.x + wayPointOffsetWidth * (j - 2f) + wayPointOffsetWidth / 2f, pointOnRay.y, pointOnRay.z);
 
-                Instantiate(debugSphere, wayPointPosition, Quaternion.identity);
+                GameObject debug = Instantiate(debugSphere, wayPointPosition, Quaternion.identity);
+                debug.GetComponent<WayPointScript>().waypointSourceID = spawnerCount;
                 wayPointMatrix[i, j] = wayPointPosition;
             }
         }
@@ -80,6 +88,7 @@ public class KidSpawnerScript : MonoBehaviour
         
         kidsList.Add(kidScript);
         kidScript.SetTarget(startPoint.position);
+        kidScript.SetFinalTarget(destination.position);
         spawnedKidCount++;
 
         //manager.AddToList(kidSpawned.transform.GetChild(0).gameObject);
@@ -98,18 +107,21 @@ public class KidSpawnerScript : MonoBehaviour
 
         if (kidScript == null) return;
 
+
+        
         kidScript.ReachedTarget(ID);
         if (kidScript.WPIndex() == 4)
         {
             kidScript.SetTarget(destination.position);
             return;
         }
-        else if (kidScript.WPIndex() > 4 )
+        else if (kidScript.WPIndex() > 4)
         {
             return;
         }
         int targetOffsetIndex = Random.Range(0, 3);
         Vector3 targetWayPoint = wayPointMatrix[kidScript.WPIndex(), targetOffsetIndex];
         kidScript.SetTarget(targetWayPoint);
+        
     }
 }
