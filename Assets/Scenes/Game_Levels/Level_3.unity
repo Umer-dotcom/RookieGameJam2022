@@ -2504,12 +2504,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1380982800}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1393837100 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1002589161550046826, guid: 1296c705254dba84287391a28eef9d98,
-    type: 3}
-  m_PrefabInstance: {fileID: 2046095033}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1393886758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3442,7 +3436,7 @@ PrefabInstance:
         type: 3}
       propertyPath: mainMenuRectTransform
       value: 
-      objectReference: {fileID: 1393837100}
+      objectReference: {fileID: 2046095034}
     - target: {fileID: 5395225661845862583, guid: d49647de71dcf3742a729cdd7859ea23,
         type: 3}
       propertyPath: charUnlockRectTransform
@@ -4335,6 +4329,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1296c705254dba84287391a28eef9d98, type: 3}
+--- !u!224 &2046095034 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1002589161459802868, guid: 1296c705254dba84287391a28eef9d98,
+    type: 3}
+  m_PrefabInstance: {fileID: 2046095033}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2056498768 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6600428396524544715, guid: 02811c125164d7a42b19baa509991112,

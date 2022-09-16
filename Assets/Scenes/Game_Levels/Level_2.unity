@@ -395,7 +395,7 @@ PrefabInstance:
         type: 3}
       propertyPath: mainMenuRectTransform
       value: 
-      objectReference: {fileID: 538876523}
+      objectReference: {fileID: 1938881521}
     - target: {fileID: 5395225661845862583, guid: d49647de71dcf3742a729cdd7859ea23,
         type: 3}
       propertyPath: charUnlockRectTransform
@@ -862,12 +862,6 @@ Transform:
   m_Father: {fileID: 1505356060}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &538876523 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1002589161550046826, guid: 1296c705254dba84287391a28eef9d98,
-    type: 3}
-  m_PrefabInstance: {fileID: 1938881520}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &540272592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3431,6 +3425,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1296c705254dba84287391a28eef9d98, type: 3}
+--- !u!224 &1938881521 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1002589161459802868, guid: 1296c705254dba84287391a28eef9d98,
+    type: 3}
+  m_PrefabInstance: {fileID: 1938881520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1970896206
 PrefabInstance:
   m_ObjectHideFlags: 0
