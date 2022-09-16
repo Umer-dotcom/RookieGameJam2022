@@ -16,10 +16,6 @@ public class ProjectileShooter : MonoBehaviour
 
     [SerializeField] GameObject parent;
 
-    [SerializeField] CinemachineVirtualCamera virtualCamera;
-
-    //[SerializeField]
-    //private GameObject projectilesContainer;
     [SerializeField]
     private Transform spawnPos;
     [SerializeField]
@@ -64,9 +60,7 @@ public class ProjectileShooter : MonoBehaviour
     private void Start()
     {
         gunRB.isKinematic = true;
-        poolerScript = ObjectPoolerScript.Instance;
-        if (virtualCamera != null) InitCameraPosition = virtualCamera.LookAt.position;
-        
+        poolerScript = ObjectPoolerScript.Instance;        
     }
     private void OnEnable()
     {
@@ -106,13 +100,6 @@ public class ProjectileShooter : MonoBehaviour
             }
         }
 
-        //if (!shooting)
-        //{
-        //    Vector3 velocity = Vector3.zero;
-        //    float smoothTime = 0.3f;
-        //    virtualCamera.LookAt.position = Vector3.SmoothDamp(virtualCamera.LookAt.position, InitCameraPosition, ref velocity, smoothTime);
-
-        //}
         Debug.DrawRay(spawnPos.position, spawnPos.forward * 25f, Color.red);
 
 

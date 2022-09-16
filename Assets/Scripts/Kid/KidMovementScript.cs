@@ -38,8 +38,6 @@ public class KidMovementScript : MonoBehaviour
 
     public void OnEnterDanger()
     {
-        
-            
             Agent.enabled = false;
             Animator.SetFloat(throwSpeedTag, sO.SpeedMultiplier);
             Animator.SetTrigger(throwTag);
@@ -104,6 +102,7 @@ public class KidMovementScript : MonoBehaviour
     private void Update()
     {
         Animator.SetBool(isRunning, Agent.velocity.magnitude > 0.01f);
+        Debug.DrawRay(snowSpawn.position, target, Color.red);
     }
 
     private IEnumerator FollowTarget()
