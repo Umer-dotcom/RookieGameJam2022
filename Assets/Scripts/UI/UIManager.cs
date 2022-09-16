@@ -260,11 +260,11 @@ public class UIManager : MonoBehaviour
         }
 
         int counter = 0;
-        if (gameplaySlider.value == 10)
+        if (gameplaySlider.value == gameplayUIController.star3_val)
             counter = 3;
-        else if (gameplaySlider.value >= 8)
+        else if (gameplaySlider.value >= gameplayUIController.star2_val)
             counter = 2;
-        else if (gameplaySlider.value >= 5)
+        else if (gameplaySlider.value >= gameplayUIController.star1_val)
             counter = 1;
 
         Debug.Log("Counter = " + counter.ToString());

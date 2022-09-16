@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> _kidsList;
     [SerializeField]
+    private int hitsToKill = 3;
+    [SerializeField]
     private int totalKids = 0;
     [SerializeField]
     private int shooterKids = 0;
@@ -104,6 +106,7 @@ public class GameManager : MonoBehaviour
     public void AddToList(GameObject kiddo)
     {
         _kidsList.Add(kiddo);
+        kiddo.GetComponent<KidInfantryScript>().SetHitsToKill(hitsToKill);
     }
 
     IEnumerator Delay()

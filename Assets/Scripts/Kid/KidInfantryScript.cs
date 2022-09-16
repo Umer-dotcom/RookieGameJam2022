@@ -259,4 +259,9 @@ public class KidInfantryScript : Kid
         ragdollEnabler.DisableAllRigidbodies();
     }
 
+    public void SetHitsToKill(int val)
+    {
+        hitsToKill = val;
+    }
+
 }

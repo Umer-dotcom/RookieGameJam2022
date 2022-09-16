@@ -13,7 +13,15 @@ public class GameplayUIController : MonoBehaviour
     private TextMeshProUGUI level_no;
     [SerializeField]
     private List<GameObject> stars = new List<GameObject>();
-    
+
+    [Header("Star PopUp Values")]
+    [SerializeField]
+    public int star1_val;
+    [SerializeField]
+    public int star2_val;
+    [SerializeField]
+    public int star3_val;
+
     private int star_counter = 0;
 
     private void Start()
@@ -26,25 +34,33 @@ public class GameplayUIController : MonoBehaviour
 
     public void scoreIncrement(int score)
     {
-        switch (score)
+        if(star1_val == score)
         {
-            case 5:
-            case 8:
-            case 10:
-                fade_in();
-                break;
+            fade_in();
+        }
+        if (star2_val == score)
+        {
+            fade_in();
+        }
+        if (star3_val == score)
+        {
+            fade_in();
         }
     }
 
     public void scoreDecrement(int score)
     {
-        switch (score)
+        if (star1_val - 1 == score)
         {
-            case 4:
-            case 7:
-            case 9:
-                fade_out();
-                break;
+            fade_out();
+        }
+        if (star2_val - 1 == score)
+        {
+            fade_out();
+        }
+        if (star3_val - 1 == score)
+        {
+            fade_out();
         }
     }
 
