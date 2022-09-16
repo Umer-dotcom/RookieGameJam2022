@@ -16,7 +16,7 @@ public class ProjectileShooter : MonoBehaviour
 
     [SerializeField] GameObject parent;
 
-    [SerializeField] CinemachineVirtualCamera virtualCamera;
+    //[SerializeField] CinemachineVirtualCamera virtualCamera;
 
     //[SerializeField]
     //private GameObject projectilesContainer;
@@ -65,7 +65,7 @@ public class ProjectileShooter : MonoBehaviour
     {
         gunRB.isKinematic = true;
         poolerScript = ObjectPoolerScript.Instance;
-        if (virtualCamera != null) InitCameraPosition = virtualCamera.LookAt.position;
+        //if (virtualCamera != null) InitCameraPosition = virtualCamera.LookAt.position;
         
     }
     private void OnEnable()
