@@ -224,8 +224,27 @@ public class KidInfantryScript : Kid
 
         }
     }
-    
-    
+
+    public void KiddoExploded()
+    {
+        hitCount = hitsToKill;
+
+        if (hitCount >= hitsToKill)
+        {
+            kidActive = false;
+            Rigidbody[] rigidbodies = ragdollEnabler.EnableRagdoll();
+            Vector3 forceDirection = -transform.position.normalized;
+            forceDirection.y = 0;
+            foreach (Rigidbody rb in rigidbodies)
+            {
+                rb.AddForce(forceDirection * ragdollForce, ForceMode.Impulse);
+            }
+            Collider mainCollider = GetComponent<Collider>();
+            mainCollider.enabled = false;
+            StartCoroutine(TurnKidsOffDelay(3f));
+        }
+    }
+
     protected override IEnumerator TurnKidsOffDelay(float duration)
     {
         yield return new WaitForSeconds(duration);

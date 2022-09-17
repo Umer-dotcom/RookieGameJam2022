@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KidSpawnerScript : MonoBehaviour
 {
-    //[SerializeField] private GameManager manager;
+    [SerializeField] private GameManager manager;
     //[SerializeField] float distanceFromPlayer = 15f;
     public static int spawnerCount = 0;
     public int maxKidCount;
@@ -91,7 +91,7 @@ public class KidSpawnerScript : MonoBehaviour
         kidScript.SetFinalTarget(destination.position);
         spawnedKidCount++;
 
-        //manager.AddToList(kidSpawned.transform.GetChild(0).gameObject);
+        manager.AddToList(kidSpawned.transform.GetChild(0).gameObject);
     }
     public void SetKidTarget(int ID)
     {

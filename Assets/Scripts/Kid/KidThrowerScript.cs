@@ -1,6 +1,7 @@
 using System.Collections;
 using System;
 using UnityEngine;
+using System.Runtime.CompilerServices;
 
 [RequireComponent(typeof(Animator))]
 public class KidThrowerScript : Kid
@@ -254,6 +255,35 @@ public class KidThrowerScript : Kid
             StartCoroutine(TurnKidsOffDelay(3f));
 
 
+        }
+    }
+
+    public void KiddoExploded()
+    {
+        hitCount = hitsToKill;
+
+        if (hitCount >= hitsToKill)
+        {
+            ThrowerKilledEvent?.Invoke();
+            kidActive = false;
+            //animator.enabled = false;
+            Rigidbody[] rigidbodies = ragdollEnabler.EnableRagdoll();
+
+
+            Vector3 forceDirection = -transform.position.normalized;
+            forceDirection.y = 0;
+            foreach (Rigidbody rb in rigidbodies)
+            {
+
+                rb.AddForce(forceDirection * 20f, ForceMode.Impulse);
+
+            }
+
+
+            Collider mainCollider = GetComponent<Collider>();
+
+            mainCollider.enabled = false;
+            StartCoroutine(TurnKidsOffDelay(3f));
         }
     }
 }

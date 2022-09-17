@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -203,6 +203,11 @@ PrefabInstance:
       propertyPath: hitsToKill
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8837586402879170676, guid: 92d93b5f7a49dd34284d349a78c7dcef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92d93b5f7a49dd34284d349a78c7dcef, type: 3}
 --- !u!4 &8868485 stripped
@@ -229,30 +234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snowman
       objectReference: {fileID: 0}
-    - target: {fileID: 2592732653945025718, guid: a75d2d963a5c520409238a2d17412a32,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 2932103049281449484, guid: a75d2d963a5c520409238a2d17412a32,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2932103049281449484, guid: a75d2d963a5c520409238a2d17412a32,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2932103049281449484, guid: a75d2d963a5c520409238a2d17412a32,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2932103049281449484, guid: a75d2d963a5c520409238a2d17412a32,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2932103049281449484, guid: a75d2d963a5c520409238a2d17412a32,
         type: 3}
@@ -1202,12 +1187,6 @@ PrefabInstance:
       objectReference: {fileID: 8868486}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02811c125164d7a42b19baa509991112, type: 3}
---- !u!1 &635858626 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6600428396524544715, guid: 02811c125164d7a42b19baa509991112,
-    type: 3}
-  m_PrefabInstance: {fileID: 635858625}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &658651064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1417,6 +1396,11 @@ PrefabInstance:
       objectReference: {fileID: 421891568}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
+      propertyPath: disableThese.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
+        type: 3}
       propertyPath: disableThese.Array.data[0]
       value: 
       objectReference: {fileID: 1224591096}
@@ -1424,12 +1408,12 @@ PrefabInstance:
         type: 3}
       propertyPath: disableThese.Array.data[1]
       value: 
-      objectReference: {fileID: 115211350}
+      objectReference: {fileID: 1317241046}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
       propertyPath: disableThese.Array.data[2]
       value: 
-      objectReference: {fileID: 1317241046}
+      objectReference: {fileID: 546500959}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
       propertyPath: disableThese.Array.data[3]
@@ -3470,6 +3454,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395225661845862583, guid: d49647de71dcf3742a729cdd7859ea23,
+        type: 3}
+      propertyPath: fadeTime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5395225661845862583, guid: d49647de71dcf3742a729cdd7859ea23,
         type: 3}
