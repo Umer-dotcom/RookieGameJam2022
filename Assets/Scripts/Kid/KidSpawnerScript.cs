@@ -7,6 +7,7 @@ public class KidSpawnerScript : MonoBehaviour
     [SerializeField] private GameManager manager;
     //[SerializeField] float distanceFromPlayer = 15f;
     public static int spawnerCount = 0;
+    public int spawnerID = 0;
     public int maxKidCount;
     public float kidSpawnInterval;
     public Transform startPoint;
@@ -34,9 +35,10 @@ public class KidSpawnerScript : MonoBehaviour
     }
     void Start()
     {
-        spawnerCount++;
+        spawnerID = spawnerCount++;
         GameObject sphere = Instantiate(debugSphere, startPoint.position, Quaternion.identity);
         sphere.transform.parent = objectContainer;
+        sphere.GetComponent<WayPointScript>().wayPointSpawner = this;
         poolerScript = ObjectPoolerScript.Instance;
         Vector3 directionVector = destination.position - startPoint.position;
         float distanceBWVectors = Vector3.Distance(destination.position, startPoint.position);
@@ -51,7 +53,8 @@ public class KidSpawnerScript : MonoBehaviour
                 Vector3 wayPointPosition = new(pointOnRay.x + wayPointOffsetWidth * (j - 2f) + wayPointOffsetWidth / 2f, pointOnRay.y, pointOnRay.z);
 
                 GameObject debug = Instantiate(debugSphere, wayPointPosition, Quaternion.identity);
-                debug.GetComponent<WayPointScript>().waypointSourceID = spawnerCount;
+
+                debug.GetComponent<WayPointScript>().wayPointSpawner = this;
                 wayPointMatrix[i, j] = wayPointPosition;
             }
         }
@@ -85,6 +88,8 @@ public class KidSpawnerScript : MonoBehaviour
             
             return; 
         }
+        kidScript.spawner = this;
+        Debug.Log(kidScript.spawner.spawnerID);
         
         kidsList.Add(kidScript);
         kidScript.SetTarget(startPoint.position);

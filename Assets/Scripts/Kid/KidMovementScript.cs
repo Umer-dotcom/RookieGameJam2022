@@ -15,6 +15,8 @@ public class KidMovementScript : MonoBehaviour
 
     ObjectPoolerScript poolerScript;
 
+    [HideInInspector] public KidSpawnerScript spawner;
+
 
     public static event Action<int> TargetNotFound = delegate { };
     private float targetFoundTracker = 0;

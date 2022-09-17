@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3484609149124001725}
   - component: {fileID: 1711129019439401847}
   - component: {fileID: 9208964121667987927}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,5 +95,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7839236, y: 3.2482882, z: 0.75437164}
-  m_Center: {x: -0.009163886, y: 1.6241441, z: -0.29439926}
+  m_Size: {x: 2.9691887, y: 4.1556134, z: 0.75437164}
+  m_Center: {x: -0.038546264, y: 2.0778067, z: -0.29439926}

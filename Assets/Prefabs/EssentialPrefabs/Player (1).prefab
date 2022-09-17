@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1121085516}
   - component: {fileID: 1121085515}
   - component: {fileID: 1121085514}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SideObst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121085512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.0888, y: 1.5295, z: 0}
+  m_LocalPosition: {x: 12.0888, y: 0.36, z: 0}
   m_LocalScale: {x: 8.7776, y: 5.4891777, z: 30.729055}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 2089299644}
   - component: {fileID: 2089299643}
   - component: {fileID: 2089299642}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SideObst (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089299640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.3, y: 1.5295, z: 0}
+  m_LocalPosition: {x: -16.3, y: 0.3599999, z: 0}
   m_LocalScale: {x: 8.7776, y: 5.4891777, z: 30.729055}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17196,7 +17196,7 @@ GameObject:
   - component: {fileID: 8837586402879170679}
   - component: {fileID: 8837586402879170680}
   - component: {fileID: 8837586402879170683}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LoseArea
   m_TagString: LoseArea
   m_Icon: {fileID: 0}
