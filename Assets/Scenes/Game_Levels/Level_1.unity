@@ -251,12 +251,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 161364283}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &266257605 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 918693327684233890, guid: c468134e44de90342bd3fb813b7f0f8f,
-    type: 3}
-  m_PrefabInstance: {fileID: 8662913617613937099}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &375150449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3115,7 +3109,7 @@ PrefabInstance:
     - target: {fileID: 7136633872636386073, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.2
+      value: -11.95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8, type: 3}
@@ -3984,11 +3978,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 573094160787288088, guid: c468134e44de90342bd3fb813b7f0f8f,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.34592602
-      objectReference: {fileID: 0}
-    - target: {fileID: 573094160787288088, guid: c468134e44de90342bd3fb813b7f0f8f,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -4041,11 +4030,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bolder
-      objectReference: {fileID: 0}
-    - target: {fileID: 918693327684233890, guid: c468134e44de90342bd3fb813b7f0f8f,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c468134e44de90342bd3fb813b7f0f8f, type: 3}
@@ -4233,6 +4217,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8837586402879170676, guid: 92d93b5f7a49dd34284d349a78c7dcef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92d93b5f7a49dd34284d349a78c7dcef, type: 3}
 --- !u!1001 &9185483764942237713
@@ -4310,16 +4299,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8662913617613937099}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &9208964121667987930
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 266257605}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.222938, y: 3.0721827, z: 1.1858406}
-  m_Center: {x: -0.044858217, y: 1.5360913, z: 0.018899918}
