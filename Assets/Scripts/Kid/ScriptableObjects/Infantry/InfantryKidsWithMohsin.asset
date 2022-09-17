@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd864f2c8e3bf6249921db731ca0a126, type: 3}
-  m_Name: Thrower
+  m_Name: InfantryKidsWithMohsin
   m_EditorClassIdentifier: 
-  _guid: 9934b695d4b5b6a4f9aec1d085b3fd70
+  _guid: cc0373e7b70478449a6c395f162f7f3a
   description: 
   kid:
   - {fileID: 4210789284224788558, guid: 2530d121695f6ce4883aa2900f6950b2, type: 3}

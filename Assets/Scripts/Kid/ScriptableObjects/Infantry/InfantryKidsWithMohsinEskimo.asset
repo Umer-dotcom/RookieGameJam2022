@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd864f2c8e3bf6249921db731ca0a126, type: 3}
+  m_Name: InfantryKidsWithMohsinEskimo
+  m_EditorClassIdentifier: 
+  _guid: 85ccc3a7283c8ed449c0f1430ba70c3c
+  description: 
+  kid:
+  - {fileID: 4210789284224788558, guid: 2530d121695f6ce4883aa2900f6950b2, type: 3}
+  - {fileID: 7066907193453917227, guid: 49d76777ef8f1b4478df0e4797c9b255, type: 3}
+  - {fileID: 8219574611417570606, guid: 287c7e57883bcaf4d94b7922f00ea936, type: 3}
+  - {fileID: 4145077518638011500, guid: 7f3ab16dcddca4840a0dda984a7e251e, type: 3}
+  - {fileID: 5219764482696258084, guid: 99b88bf1a9543b242a76e14d1dd3b926, type: 3}
+  - {fileID: 4145077518638011500, guid: 9c8044b34d8c11c4eadccacf7297d528, type: 3}
+  duration: 2

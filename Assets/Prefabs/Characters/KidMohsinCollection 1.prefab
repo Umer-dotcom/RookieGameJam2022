@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8586105968668585625}
   - component: {fileID: 9141389616409550690}
   m_Layer: 0
-  m_Name: KidCollection
+  m_Name: KidMohsinCollection 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1400a595591bb34794d475f1f84ec5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kidChooser: {fileID: 11400000, guid: 9934b695d4b5b6a4f9aec1d085b3fd70, type: 2}
+  kidChooser: {fileID: 11400000, guid: cc0373e7b70478449a6c395f162f7f3a, type: 2}
