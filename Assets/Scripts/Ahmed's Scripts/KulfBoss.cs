@@ -16,12 +16,6 @@ public class KulfBoss : MonoBehaviour
     private GameObject explosionEffect;
     [SerializeField]
     private Vector3 scaleChange = new Vector3(0.1f, 0.1f, 0.1f);
-    [SerializeField]
-    private float radius = 5f;
-    [SerializeField]
-    private float force = 700f;
-    [SerializeField]
-    private int totalHits = 5;
 
 
     // Update is called once per frame
