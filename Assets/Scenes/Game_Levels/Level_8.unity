@@ -214,6 +214,81 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 73079901}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &91541950
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6178168789338014411, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_Name
+      value: Henry@House Dancing
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -37.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 195bf1c1c7ff99f4aad5e1089358b91a, type: 3}
+--- !u!1 &91541951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6178168789338014411, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+    type: 3}
+  m_PrefabInstance: {fileID: 91541950}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &97089872 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1002589161389067657, guid: 1296c705254dba84287391a28eef9d98,
@@ -3074,6 +3149,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
+      propertyPath: dancingHenry
+      value: 
+      objectReference: {fileID: 91541951}
+    - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
+        type: 3}
       propertyPath: kidSpawnerScript
       value: 
       objectReference: {fileID: 870206486}
@@ -3090,7 +3170,7 @@ PrefabInstance:
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
       propertyPath: disableThese.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
@@ -3112,6 +3192,11 @@ PrefabInstance:
       propertyPath: disableThese.Array.data[3]
       value: 
       objectReference: {fileID: 1013489833}
+    - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
+        type: 3}
+      propertyPath: disableThese.Array.data[4]
+      value: 
+      objectReference: {fileID: 596661338}
     - target: {fileID: 8834915325899449155, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
       propertyPath: m_Name

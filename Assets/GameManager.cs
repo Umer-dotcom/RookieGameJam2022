@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject dancingHenry;
+    [SerializeField]
     private GameObject _player;
     [SerializeField]
     private UIManager _UIManager;
@@ -30,6 +32,18 @@ public class GameManager : MonoBehaviour
     private bool isPlayerDead = false;
     [SerializeField] 
     int removedKiddos = 0;
+
+    private void Awake()
+    {
+        if (dancingHenry)
+        {
+            dancingHenry.transform.position = _player.transform.position;
+            dancingHenry.transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
+            dancingHenry.SetActive(false);
+        }
+        else
+            Debug.LogError("Dancing Henry not found!");
+    }
 
     private void Start()
     {
@@ -66,6 +80,8 @@ public class GameManager : MonoBehaviour
             
             if(removedKiddos == totalKids)
             {
+                StopTheGameplay(); // <--
+                HenryDoYourDance(); // <--
                 StartCoroutine(Delay());
             }
         }
@@ -78,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     private void YouWon()
     {
-        StopTheGameplay();
+        //StopTheGameplay();
         _UIManager.WinPanelFadeIn();
         SaveUserProgress();
     }
@@ -109,9 +125,17 @@ public class GameManager : MonoBehaviour
         kiddo.GetComponent<KidInfantryScript>().SetHitsToKill(hitsToKill);
     }
 
+    public void HenryDoYourDance()
+    {
+        if (dancingHenry)
+            dancingHenry.SetActive(true);
+        else
+            Debug.LogError("Dancing Henry not found!");
+    }
+
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(4f);
         allDead = true;
     }
 

@@ -932,6 +932,81 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 752ff4194702f2448a13fb69a46600a4, type: 3}
+--- !u!1001 &289829858
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6178168789338014411, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_Name
+      value: Henry@House Dancing
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -37.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 195bf1c1c7ff99f4aad5e1089358b91a, type: 3}
+--- !u!1 &289829859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6178168789338014411, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+    type: 3}
+  m_PrefabInstance: {fileID: 289829858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &391875196 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8124012258729469415, guid: 1296c705254dba84287391a28eef9d98,
@@ -1385,6 +1460,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
+      propertyPath: dancingHenry
+      value: 
+      objectReference: {fileID: 289829859}
+    - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
+        type: 3}
       propertyPath: _kidsList.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1393,6 +1473,11 @@ PrefabInstance:
       propertyPath: _kidsList.Array.data[0]
       value: 
       objectReference: {fileID: 1062683360}
+    - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
+        type: 3}
+      propertyPath: disableThese.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
       propertyPath: disableThese.Array.data[0]
@@ -1413,6 +1498,11 @@ PrefabInstance:
       propertyPath: disableThese.Array.data[3]
       value: 
       objectReference: {fileID: 1697554342}
+    - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
+        type: 3}
+      propertyPath: disableThese.Array.data[4]
+      value: 
+      objectReference: {fileID: 1683571465}
     - target: {fileID: 8834915325899449155, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
       propertyPath: m_Name
