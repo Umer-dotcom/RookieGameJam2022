@@ -15,7 +15,7 @@ MonoBehaviour:
   _guid: 3f1bf9d9801d9f647874d111b65daf60
   description: Kid Thrower with medium abilities.
   force: 25
-  speedMultiplier: 2
+  speedMultiplier: 1.5
   throwsPerCycle: 3
   maxInaccuracy: 1
   hidePhaseDuration: 3

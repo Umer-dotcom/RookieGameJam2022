@@ -40,6 +40,7 @@ public class ProjectileShooter : MonoBehaviour
 
     private Animator animator;
     CapsuleCollider mainCollider;
+    SoundRandomizer gunSound;
 
     Vector3 initColliderPos;
     Vector3 InitCameraPosition;
@@ -65,6 +66,7 @@ public class ProjectileShooter : MonoBehaviour
     {
         gunRB.isKinematic = true;
         poolerScript = ObjectPoolerScript.Instance;
+        gunSound = GetComponent<SoundRandomizer>();
         //if (virtualCamera != null) InitCameraPosition = virtualCamera.LookAt.position;
         
     }
@@ -155,6 +157,7 @@ public class ProjectileShooter : MonoBehaviour
     }
     public void Shoot()
     {
+        if (gunSound != null) gunSound.PlayRandomClip();
         MuzzleFlash.Play();
         GameObject projectile = poolerScript.SpawnFromPool(OPTag.BULLET, spawnPos.position, Quaternion.identity);/*Instantiate(projectiles[Random.Range(0, projectiles.Length - 1)], spawnPos.position, Quaternion.identity);*/
         //projectile.transform.parent = projectilesContainer.transform;

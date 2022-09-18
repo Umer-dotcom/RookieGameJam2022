@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initSpeed: 4
   maxSpeed: 8
-  sO: {fileID: 11400000, guid: 8c1b0b4f2dd15f143ab14d485deb44e9, type: 2}
+  sO: {fileID: 11400000, guid: 3f1bf9d9801d9f647874d111b65daf60, type: 2}
   snowSpawn: {fileID: 8251158132567147981}
   spawner: {fileID: 0}
   target: {x: 0, y: 0, z: 0}

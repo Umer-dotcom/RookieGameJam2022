@@ -9,7 +9,7 @@ public class LoseAreaScript : MonoBehaviour
     {
         if (other.CompareTag("Kid"))
         {
-            Debug.Log("kid entered lose");
+            
             KidMovementScript kidScript = other.GetComponent<KidMovementScript>();
             kidScript.OnEnterDanger();
         } 

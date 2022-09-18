@@ -106,7 +106,9 @@ public class PlayerScript : MonoBehaviour
 
     protected void OnTriggerEnter(Collider other)    
     {
-        //Debug.Log("Player hit.");
+        //
+        //
+        //("Player hit.");
         if (other.gameObject.CompareTag("EnemyBullet"))
         {
             CinemachineShake.INSTANCE.ShakeCamera(5f, 0.1f);

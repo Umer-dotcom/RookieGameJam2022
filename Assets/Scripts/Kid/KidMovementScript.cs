@@ -20,7 +20,7 @@ public class KidMovementScript : MonoBehaviour
 
     public static event Action<int> TargetNotFound = delegate { };
     private float targetFoundTracker = 0;
-    private float targetNotFoundTime = 2f; 
+    private float targetNotFoundTime = 1f; 
     private float speedIncrement;
     public Vector3 target;
 
@@ -77,12 +77,12 @@ public class KidMovementScript : MonoBehaviour
 
     private void Start()
     {
+        Agent.avoidancePriority = 99 - GetID();
         poolerScript = ObjectPoolerScript.Instance;
         StartCoroutine(FollowTarget());
         Agent.speed = initSpeed;
         speedIncrement = (maxSpeed - initSpeed) / 3;
 
-        Debug.Log(Agent.velocity.magnitude);
         Animator.SetFloat("runSpeed", Agent.velocity.magnitude / Agent.speed);
     }
 
@@ -131,7 +131,7 @@ public class KidMovementScript : MonoBehaviour
         if (targetFoundTracker >= targetNotFoundTime)
         {
             TargetNotFound?.Invoke(GetID());
-            Debug.Log("target not found");
+            //Debug.Log("target not found");
 
         }
     }

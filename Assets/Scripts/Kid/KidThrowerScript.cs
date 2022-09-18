@@ -265,6 +265,7 @@ public class KidThrowerScript : Kid
         if (hitCount >= hitsToKill)
         {
             ThrowerKilledEvent?.Invoke();
+
             kidActive = false;
             //animator.enabled = false;
             Rigidbody[] rigidbodies = ragdollEnabler.EnableRagdoll();
