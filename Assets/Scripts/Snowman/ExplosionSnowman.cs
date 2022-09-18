@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class ExplosionSnowman : MonoBehaviour
@@ -18,6 +15,8 @@ public class ExplosionSnowman : MonoBehaviour
 
     [Header("For Testing Purpose")]
     [SerializeField]
+    private bool isHit = false;
+    [SerializeField]
     private bool boom = false;
     [SerializeField]
     private bool hasExploded = false;
@@ -26,6 +25,12 @@ public class ExplosionSnowman : MonoBehaviour
 
     void Update()
     {
+        if(isHit)
+        {
+            isHit = false;
+            GotHit();
+        }
+
         if (boom && !hasExploded)
         {
             Explode();
@@ -54,7 +59,19 @@ public class ExplosionSnowman : MonoBehaviour
                 {
                     Rigidbody rb = nearbyObject.gameObject.AddComponent<Rigidbody>();
                     rb.AddExplosionForce(force, transform.position, radius);
-                    nearbyObject.GetComponent<KidInfantryScript>().KiddoExploded();
+                    KidInfantryScript infant = nearbyObject.GetComponent<KidInfantryScript>();
+                    if (infant != null)
+                    {
+                        infant.KiddoExploded();
+                    }
+                    else
+                    {
+                        KidThrowerScript thrower = nearbyObject.GetComponent<KidThrowerScript>();
+                        if(thrower != null)
+                        {
+                            thrower.KiddoExploded();
+                        }
+                    }
                     Destroy(rb);
                 }
             }
@@ -67,15 +84,19 @@ public class ExplosionSnowman : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Debug.Log("I am here!");
-            currentHits += 1;
-            this.transform.localScale += scaleChange;
+            GotHit();
+        }
+    }
 
-            if (currentHits >= totalHits)
-            {
-                Explode();
-                hasExploded = true;
-            }
+    private void GotHit()
+    {
+        currentHits += 1;
+        transform.localScale = transform.localScale + scaleChange;
+
+        if (currentHits >= totalHits)
+        {
+            Explode();
+            hasExploded = true;
         }
     }
 

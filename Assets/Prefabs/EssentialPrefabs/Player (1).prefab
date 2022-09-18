@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a54bf87caff2841a9fae33350960af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitsToKill: 6
+  hitsToKill: 10
   RagdollRoot: {fileID: 2498410652717607566}
 --- !u!1 &925824731124949441
 GameObject:
@@ -17211,7 +17211,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8837586402879170677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7.2}
+  m_LocalPosition: {x: 0, y: 0, z: 3.17}
   m_LocalScale: {x: 7.037466, y: 5.6811423, z: 2.7930887}
   m_ConstrainProportionsScale: 0
   m_Children: []

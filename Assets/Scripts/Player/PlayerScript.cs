@@ -111,6 +111,7 @@ public class PlayerScript : MonoBehaviour
         {
             CinemachineShake.INSTANCE.ShakeCamera(5f, 0.1f);
             hitCount++;
+            PlayerHealthBar.instance.UpdateHealthBar();
             if (hitCount >= hitsToKill)
             {
                 playerActive = false;
