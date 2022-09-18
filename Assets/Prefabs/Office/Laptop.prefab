@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7097280452178282385}
   - component: {fileID: 1182406289887942793}
   - component: {fileID: -7058582161392860008}
+  - component: {fileID: 2947243686374655207}
   m_Layer: 0
   m_Name: Laptop
   m_TagString: Untagged
@@ -128,3 +129,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2947243686374655207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3405893397882145953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e316cb0b82e80e46ba10faa79760ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 1854516660, guid: a75d2d963a5c520409238a2d17412a32, type: 3}
+  scaleChange: {x: 0.1, y: 0.1, z: 0.1}
+  radius: 10
+  force: 1000
+  totalHits: 5
+  isHit: 0
+  boom: 0
+  hasExploded: 0
+  currentHits: 0
