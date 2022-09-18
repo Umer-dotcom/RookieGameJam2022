@@ -15,8 +15,8 @@ MonoBehaviour:
   _guid: 9934b695d4b5b6a4f9aec1d085b3fd70
   description: 
   kid:
-  - {fileID: 4210789284224788558, guid: 2530d121695f6ce4883aa2900f6950b2, type: 3}
-  - {fileID: 7066907193453917227, guid: 49d76777ef8f1b4478df0e4797c9b255, type: 3}
-  - {fileID: 8219574611417570606, guid: 287c7e57883bcaf4d94b7922f00ea936, type: 3}
   - {fileID: 4145077518638011500, guid: 7f3ab16dcddca4840a0dda984a7e251e, type: 3}
+  - {fileID: 4210789284224788558, guid: 2530d121695f6ce4883aa2900f6950b2, type: 3}
+  - {fileID: 8219574611417570606, guid: 287c7e57883bcaf4d94b7922f00ea936, type: 3}
+  - {fileID: 7066907193453917227, guid: 49d76777ef8f1b4478df0e4797c9b255, type: 3}
   duration: 2

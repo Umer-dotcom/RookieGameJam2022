@@ -3069,6 +3069,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5555154174839521480, guid: cb8353d4cb3f37b4c847628128dc46d7,
+        type: 3}
+      propertyPath: poolList.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 6487679218765021095, guid: eb6051df4a248a24fae125159ed4c808,
+        type: 3}
     - target: {fileID: 5555154174839521481, guid: cb8353d4cb3f37b4c847628128dc46d7,
         type: 3}
       propertyPath: m_RootOrder

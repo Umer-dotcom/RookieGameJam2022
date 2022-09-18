@@ -1173,7 +1173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036c42a57784ca940ba76ac6122f3415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitsToKill: 5
+  hitsToKill: 7
 --- !u!195 &5219764482696258014
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1280,9 +1280,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initSpeed: 4
-  maxSpeed: 8
+  maxSpeed: 9
   sO: {fileID: 11400000, guid: 8c1b0b4f2dd15f143ab14d485deb44e9, type: 2}
   snowSpawn: {fileID: 5219764483628500576}
+  spawner: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
   UpdateRate: 0.1
   finalTarget: {x: 0, y: 0, z: 0}

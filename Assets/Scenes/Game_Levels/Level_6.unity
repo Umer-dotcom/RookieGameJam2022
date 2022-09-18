@@ -1815,7 +1815,7 @@ PrefabInstance:
     - target: {fileID: 4631227425451868562, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8,
         type: 3}
       propertyPath: kidSpawnInterval
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4631227425451868563, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8,
         type: 3}
@@ -2179,6 +2179,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5555154174839521480, guid: cb8353d4cb3f37b4c847628128dc46d7,
+        type: 3}
+      propertyPath: poolList.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 4516542553265468306, guid: 4761bc5675dc51b43bd4899d35ad01b2,
+        type: 3}
     - target: {fileID: 5555154174839521481, guid: cb8353d4cb3f37b4c847628128dc46d7,
         type: 3}
       propertyPath: m_RootOrder
@@ -2521,8 +2527,13 @@ PrefabInstance:
       objectReference: {fileID: 990267346}
     - target: {fileID: 4631227425451868562, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8,
         type: 3}
+      propertyPath: maxKidCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631227425451868562, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8,
+        type: 3}
       propertyPath: kidSpawnInterval
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4631227425451868563, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8,
         type: 3}
@@ -2794,7 +2805,7 @@ PrefabInstance:
     - target: {fileID: 4631227425451868562, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8,
         type: 3}
       propertyPath: kidSpawnInterval
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4631227425451868563, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8,
         type: 3}
