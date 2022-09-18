@@ -21,7 +21,7 @@ public class KidThrowerScript : Kid
     int ragdollForce = 20;
     float timeInHidePhase = 0;
     int cycleThrowCount = 0;
-    bool hiding = true;
+    bool hiding = false;
     Animator animator;
 
     int state1;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2207,46 +2207,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1235549276097538319, guid: 09c92f50ee3de4a489551a1ac8627293,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 5031669015789898471, guid: 09c92f50ee3de4a489551a1ac8627293,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5031669016131300348, guid: 09c92f50ee3de4a489551a1ac8627293,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5031669016686481226, guid: 09c92f50ee3de4a489551a1ac8627293,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5031669016839535899, guid: 09c92f50ee3de4a489551a1ac8627293,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7448361601776066534, guid: 09c92f50ee3de4a489551a1ac8627293,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 7678705875910539304, guid: 09c92f50ee3de4a489551a1ac8627293,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7678705877194785977, guid: 09c92f50ee3de4a489551a1ac8627293,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7678705877569216676, guid: 09c92f50ee3de4a489551a1ac8627293,
         type: 3}
       propertyPath: m_RootOrder
@@ -2306,11 +2266,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Office_Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 7678705877717478541, guid: 09c92f50ee3de4a489551a1ac8627293,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c92f50ee3de4a489551a1ac8627293, type: 3}

@@ -947,9 +947,9 @@ MonoBehaviour:
   - {fileID: 7821596850544560441}
   - {fileID: 7821596850978994290}
   - {fileID: 7821596851972682722}
-  star1_val: 0
-  star2_val: 0
-  star3_val: 0
+  star1_val: 7
+  star2_val: 11
+  star3_val: 15
 --- !u!1 &1002589161385562816
 GameObject:
   m_ObjectHideFlags: 0
@@ -7332,7 +7332,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1854525250669177259, guid: c8c9eb971e4f2a745a40fc5b026fc685,
+          type: 3}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
         m_MethodName: RestartScene
         m_Mode: 1
@@ -11008,7 +11009,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 7821596850948879962}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 15
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
@@ -11726,7 +11727,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 14
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
