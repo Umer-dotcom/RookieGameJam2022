@@ -1187,6 +1187,12 @@ PrefabInstance:
       objectReference: {fileID: 8868486}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02811c125164d7a42b19baa509991112, type: 3}
+--- !u!1 &635858626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6600428396524544715, guid: 02811c125164d7a42b19baa509991112,
+    type: 3}
+  m_PrefabInstance: {fileID: 635858625}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &658651064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1367,12 +1373,12 @@ PrefabInstance:
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
       propertyPath: hitsToKill
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
       propertyPath: shooterKids
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
@@ -1387,7 +1393,7 @@ PrefabInstance:
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
       propertyPath: _kidsList.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
@@ -1398,7 +1404,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _kidsList.Array.data[1]
       value: 
-      objectReference: {fileID: 421891568}
+      objectReference: {fileID: 635858626}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
       propertyPath: disableThese.Array.size
@@ -2952,17 +2958,17 @@ PrefabInstance:
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star1_val
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star2_val
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star3_val
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4700157417755796843, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}

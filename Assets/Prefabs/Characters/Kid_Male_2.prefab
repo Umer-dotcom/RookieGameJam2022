@@ -1218,7 +1218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initSpeed: 4
-  maxSpeed: 7
+  maxSpeed: 6
   sO: {fileID: 11400000, guid: 3f1bf9d9801d9f647874d111b65daf60, type: 2}
   snowSpawn: {fileID: 8251158132567147981}
   spawner: {fileID: 0}

@@ -698,17 +698,17 @@ PrefabInstance:
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star1_val
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star2_val
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star3_val
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4700157417755796843, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
@@ -1934,13 +1934,18 @@ PrefabInstance:
       objectReference: {fileID: 552457179}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
+      propertyPath: totalKids
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
+        type: 3}
       propertyPath: _UIManager
       value: 
       objectReference: {fileID: 616827496}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
       propertyPath: hitsToKill
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}

@@ -671,7 +671,7 @@ PrefabInstance:
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
       propertyPath: hitsToKill
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8834915325899449154, guid: c9c444eaf9dd6164aa6b9671aa52f3a7,
         type: 3}
@@ -1389,17 +1389,17 @@ PrefabInstance:
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star1_val
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star2_val
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star3_val
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4700157417755796843, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
@@ -2179,7 +2179,7 @@ PrefabInstance:
     - target: {fileID: 4631227425451868562, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8,
         type: 3}
       propertyPath: kidSpawnInterval
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4631227425451868563, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8,
         type: 3}
@@ -2444,7 +2444,7 @@ PrefabInstance:
     - target: {fileID: 4631227425451868562, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8,
         type: 3}
       propertyPath: kidSpawnInterval
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4631227425451868563, guid: cdaf824b776b98a4fbf5b8ee8c79e4d8,
         type: 3}

@@ -1111,7 +1111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036c42a57784ca940ba76ac6122f3415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitsToKill: 6
+  hitsToKill: 5
 --- !u!195 &1975713067011924800
 NavMeshAgent:
   m_ObjectHideFlags: 0
