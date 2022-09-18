@@ -2701,6 +2701,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Henry@House Dancing
       objectReference: {fileID: 0}
+    - target: {fileID: 6178168789338014411, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
         type: 3}
       propertyPath: m_RootOrder
