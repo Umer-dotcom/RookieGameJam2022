@@ -153,7 +153,7 @@ public class KidSpawnerScript : MonoBehaviour
             targetOffsetIndex = Random.Range(0, 3);
         } else
         {
-            targetOffsetIndex = availableSpots[Random.Range(0, 3)];
+            targetOffsetIndex = availableSpots[Random.Range(0, availableSpots.Count)];
         }
         
         Vector3 targetWayPoint = wayPointMatrix[kidScript.WPIndex(), targetOffsetIndex].position;
