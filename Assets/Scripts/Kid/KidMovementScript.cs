@@ -49,11 +49,11 @@ public class KidMovementScript : MonoBehaviour
 
     public void OnEnterDanger()
     {
-        
-            
-            Agent.enabled = false;
-            Animator.SetFloat(throwSpeedTag, sO.SpeedMultiplier);
-            Animator.SetTrigger(throwTag);
+
+        transform.LookAt(finalTarget);
+        Agent.enabled = false;
+        Animator.SetFloat(throwSpeedTag, sO.SpeedMultiplier);
+        Animator.SetTrigger(throwTag);
     }
 
 
