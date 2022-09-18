@@ -157,7 +157,7 @@ public class ProjectileShooter : MonoBehaviour
     }
     public void Shoot()
     {
-        if (gunSound != null) gunSound.PlayRandomClip();
+        if (gunSound != null) gunSound.PlayRandomClipAtVolume(0.3f);
         MuzzleFlash.Play();
         GameObject projectile = poolerScript.SpawnFromPool(OPTag.BULLET, spawnPos.position, Quaternion.identity);/*Instantiate(projectiles[Random.Range(0, projectiles.Length - 1)], spawnPos.position, Quaternion.identity);*/
         //projectile.transform.parent = projectilesContainer.transform;

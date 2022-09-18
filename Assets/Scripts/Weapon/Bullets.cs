@@ -60,11 +60,11 @@ public class Bullets : MonoBehaviour
 
         poolerScript.SpawnFromPool(OPTag.SNOWEFFECT, transform.position, Quaternion.identity);
 
-        
+        snowSound.PlayRandomClipAtVolume(0.05f);
 
         if (!gameObject.CompareTag(enemyBullet) && collision.gameObject.CompareTag(kidTag))
         {
-            snowSound.PlayRandomClipAtVolume(0.5f);
+            //snowSound.PlayRandomClipAtVolume(0.2f);
             //Debug.Log(collision.gameObject.tag);
             HitEvent?.Invoke(1);
             Kid kidScript = collision.gameObject.GetComponent<Kid>();
@@ -76,17 +76,17 @@ public class Bullets : MonoBehaviour
             }
         } else if (!gameObject.CompareTag(enemyBullet) && collision.gameObject.CompareTag(headTag))
         {
-            snowSound.PlayRandomClipAtVolume(1f);
+            //snowSound.PlayRandomClipAtVolume(0.3f);
             //Debug.Log(collision.gameObject.tag);
             HitEvent?.Invoke(3);
             poolerScript.SpawnFromPool(OPTag.CRIT, transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
         } else if (gameObject.CompareTag("Player"))
         {
-            snowSound.PlayRandomClipAtVolume(0.5f);
+            //snowSound.PlayRandomClipAtVolume(0.2f);
             //Debug.Log(collision.gameObject.tag);
         } else
         {
-            snowSound.PlayRandomClipAtVolume(0.2f);
+            //snowSound.PlayRandomClipAtVolume(0.05f);
         }
 
         this.gameObject.SetActive(false);

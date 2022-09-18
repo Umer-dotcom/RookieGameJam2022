@@ -32,8 +32,8 @@ using UnityEngine;
     {
         if (playSound)
         {
-            audioSource.clip = audioClips[Random.Range(0, audioClips.Count)];
-            audioSource.volume = Mathf.Clamp(volume, 0, 1);
+            //audioSource.clip = audioClips[Random.Range(0, audioClips.Count)];
+            audioSource.volume = volume;
             audioSource.PlayOneShot(audioSource.clip);
         }
     }

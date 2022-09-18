@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -456,6 +456,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 1002589161032719943, guid: 1296c705254dba84287391a28eef9d98,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002589161550046829, guid: 1296c705254dba84287391a28eef9d98,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1002589161605550774, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: m_Pivot.x
@@ -826,10 +836,35 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 7821596850107099231, guid: 1296c705254dba84287391a28eef9d98,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821596850107099231, guid: 1296c705254dba84287391a28eef9d98,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821596850948879962, guid: 1296c705254dba84287391a28eef9d98,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7821596851159211559, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: m_text
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821596851572076742, guid: 1296c705254dba84287391a28eef9d98,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821596851690392990, guid: 1296c705254dba84287391a28eef9d98,
+        type: 3}
+      propertyPath: m_text
+      value: New Level Unlocked!
       objectReference: {fileID: 0}
     - target: {fileID: 7821596851909912284, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
