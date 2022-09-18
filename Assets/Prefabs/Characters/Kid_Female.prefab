@@ -1653,9 +1653,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036c42a57784ca940ba76ac6122f3415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   hitsToKill: 10
   sleepEffect: {fileID: 1534639363344604, guid: 21839c8bb8537054c855321a11c68a11,
     type: 3}
+=======
+  hitsToKill: 4
+>>>>>>> Stashed changes
 --- !u!195 &5032753711988346994
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1677,7 +1681,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!95 &9082419086681688457
 Animator:
   serializedVersion: 4
@@ -1761,8 +1765,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c0f16073c7e7a241a2ef32580c3d7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   initSpeed: 2
   maxSpeed: 6
+=======
+  initSpeed: 3
+  maxSpeed: 6
+  sO: {fileID: 11400000, guid: 8c1b0b4f2dd15f143ab14d485deb44e9, type: 2}
+  snowSpawn: {fileID: 6145240825189218231}
+  spawner: {fileID: 0}
+>>>>>>> Stashed changes
   target: {x: 0, y: 0, z: 0}
   UpdateRate: 0.1
 --- !u!114 &8608827445341723191

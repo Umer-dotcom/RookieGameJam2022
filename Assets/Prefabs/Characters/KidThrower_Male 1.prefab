@@ -798,11 +798,19 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+<<<<<<< Updated upstream
   - {fileID: -414921334540547795, guid: 4e0739ddbd53bf043bb036726115e310, type: 3}
   - {fileID: -7256372768549644637, guid: 4e0739ddbd53bf043bb036726115e310, type: 3}
   - {fileID: 4835078630258379571, guid: 4e0739ddbd53bf043bb036726115e310, type: 3}
   - {fileID: 4217796364934669478, guid: 4e0739ddbd53bf043bb036726115e310, type: 3}
   - {fileID: -4288583467269203127, guid: 4e0739ddbd53bf043bb036726115e310, type: 3}
+=======
+  - {fileID: 2100000, guid: cedcffb647f6a164e89493a910de9816, type: 2}
+  - {fileID: 2100000, guid: adf3e733cc8916c4a8e535b7ffde1b26, type: 2}
+  - {fileID: 2100000, guid: 9706621905aeb044989d4229543cbfdc, type: 2}
+  - {fileID: 2100000, guid: 8b787f77049045f479831d5975fb1ba5, type: 2}
+  - {fileID: 2100000, guid: 78350c0a2cda95c45b2edb09a6e3e5d5, type: 2}
+>>>>>>> Stashed changes
   - {fileID: -1026805392368485035, guid: 4e0739ddbd53bf043bb036726115e310, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0

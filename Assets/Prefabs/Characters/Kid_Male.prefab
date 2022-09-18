@@ -908,9 +908,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036c42a57784ca940ba76ac6122f3415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   hitsToKill: 10
   sleepEffect: {fileID: 1534639363344604, guid: 21839c8bb8537054c855321a11c68a11,
     type: 3}
+=======
+  hitsToKill: 6
+>>>>>>> Stashed changes
 --- !u!195 &1766211571132587874
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -932,7 +936,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!95 &4402144206725462557
 Animator:
   serializedVersion: 4
@@ -1016,8 +1020,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c0f16073c7e7a241a2ef32580c3d7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   initSpeed: 2
   maxSpeed: 6
+=======
+  initSpeed: 4
+  maxSpeed: 8
+  sO: {fileID: 11400000, guid: 8c1b0b4f2dd15f143ab14d485deb44e9, type: 2}
+  snowSpawn: {fileID: 8172903142155925999}
+  spawner: {fileID: 0}
+>>>>>>> Stashed changes
   target: {x: 0, y: 0, z: 0}
   UpdateRate: 0.1
 --- !u!114 &5696147246685046838
@@ -1655,12 +1667,21 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+<<<<<<< Updated upstream
   - {fileID: -414921334540547795, guid: d36c1249aea26be4cb573d18199ce4c7, type: 3}
   - {fileID: -7256372768549644637, guid: d36c1249aea26be4cb573d18199ce4c7, type: 3}
   - {fileID: 4835078630258379571, guid: d36c1249aea26be4cb573d18199ce4c7, type: 3}
   - {fileID: 4217796364934669478, guid: d36c1249aea26be4cb573d18199ce4c7, type: 3}
   - {fileID: -4288583467269203127, guid: d36c1249aea26be4cb573d18199ce4c7, type: 3}
   - {fileID: -1026805392368485035, guid: d36c1249aea26be4cb573d18199ce4c7, type: 3}
+=======
+  - {fileID: 2100000, guid: cec6ebdfd74a7a5438fb9094b760ebc4, type: 2}
+  - {fileID: 2100000, guid: adf3e733cc8916c4a8e535b7ffde1b26, type: 2}
+  - {fileID: 2100000, guid: 9706621905aeb044989d4229543cbfdc, type: 2}
+  - {fileID: 2100000, guid: 8b787f77049045f479831d5975fb1ba5, type: 2}
+  - {fileID: 2100000, guid: 355e846bb601bf44c9c871c67849645b, type: 2}
+  - {fileID: 2100000, guid: 433ed83adfc0c7940b7824b4b3b561fd, type: 2}
+>>>>>>> Stashed changes
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
