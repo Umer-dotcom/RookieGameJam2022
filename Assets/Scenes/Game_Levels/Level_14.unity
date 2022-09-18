@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1894,17 +1894,17 @@ PrefabInstance:
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star1_val
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star2_val
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star3_val
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4700157417755796843, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
@@ -1956,6 +1956,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 147504065}
+    - target: {fileID: 7821596850383885473, guid: 1296c705254dba84287391a28eef9d98,
+        type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821596850383885473, guid: 1296c705254dba84287391a28eef9d98,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7821596851909912284, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: m_AnchorMax.x

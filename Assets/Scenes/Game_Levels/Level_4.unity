@@ -1476,17 +1476,17 @@ PrefabInstance:
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star1_val
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star2_val
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4700157416780984912, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
       propertyPath: star3_val
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4700157417755796843, guid: 1296c705254dba84287391a28eef9d98,
         type: 3}
@@ -2082,6 +2082,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Henry@House Dancing
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178168789338014411, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6842818772820400241, guid: 195bf1c1c7ff99f4aad5e1089358b91a,
         type: 3}

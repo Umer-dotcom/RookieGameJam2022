@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
         //StopTheGameplay();
         _UIManager.WinPanelFadeIn();
         SaveUserProgress();
+        allDead = false;
     }
 
     private void YouLose()

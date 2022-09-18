@@ -165,6 +165,7 @@ public class UIManager : MonoBehaviour
 
     private void FadeIn(RectTransform rectTransform)
     {
+        Debug.LogError("FADDING IN!");
         rectTransform.transform.localPosition = new Vector3(0f, -1500f, 0f);
         rectTransform.DOAnchorPos(new Vector2(0f, 0f), fadeTime, false).SetEase(Ease.OutQuint);
     }
