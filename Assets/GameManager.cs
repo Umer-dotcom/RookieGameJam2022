@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        AudioManager.instance.Stop("Celebration");
+        AudioManager.instance.Play("Theme");
         if (dancingHenry)
         {
             dancingHenry.transform.position = _player.transform.position;
@@ -128,6 +130,8 @@ public class GameManager : MonoBehaviour
 
     public void HenryDoYourDance()
     {
+        AudioManager.instance.Stop("Theme");
+        AudioManager.instance.Play("Celebration");
         if (dancingHenry)
             dancingHenry.SetActive(true);
         else

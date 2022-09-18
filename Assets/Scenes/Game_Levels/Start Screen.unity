@@ -976,7 +976,7 @@ PrefabInstance:
     - target: {fileID: 7633790575047571611, guid: a90966e01801e01419f7e8d7b34b6f69,
         type: 3}
       propertyPath: sounds.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7633790575047571611, guid: a90966e01801e01419f7e8d7b34b6f69,
         type: 3}
@@ -995,12 +995,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7633790575047571611, guid: a90966e01801e01419f7e8d7b34b6f69,
         type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a4ab7be4eb8ed854f89aafb766dabe1f, type: 3}
+    - target: {fileID: 7633790575047571611, guid: a90966e01801e01419f7e8d7b34b6f69,
+        type: 3}
+      propertyPath: sounds.Array.data[1].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633790575047571611, guid: a90966e01801e01419f7e8d7b34b6f69,
+        type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: Celebration
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633790575047571611, guid: a90966e01801e01419f7e8d7b34b6f69,
+        type: 3}
       propertyPath: sounds.Array.data[0].pitch
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7633790575047571611, guid: a90966e01801e01419f7e8d7b34b6f69,
         type: 3}
       propertyPath: sounds.Array.data[0].volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633790575047571611, guid: a90966e01801e01419f7e8d7b34b6f69,
+        type: 3}
+      propertyPath: sounds.Array.data[1].volume
       value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
